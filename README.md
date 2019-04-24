@@ -2,9 +2,12 @@
 ---
 Run from
 ```
-npm run start //to development mode
-num run build //to build mode
+You must run both front end & back end
 
-//note:
-#nothing here
+- Run project from front end: $ npm run start
+- Run project from backend: $ num run server
+
 ```
+
+Backend in `/server`
+Frontend in `/src`
