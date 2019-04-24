@@ -8,7 +8,7 @@ var app = express();
 
 var bodyParser = require("body-parser");
 var cookieParser = require("cookie-parser");
-// var routesApi = require("./app_api/routes/index");
+var routesApi = require("./app_api/routes/index");
 
 //DB connections.
 require("./app_api/models/db");
@@ -28,7 +28,7 @@ app.set("view engine", "ejs");
 //retrieve public files.
 app.use("/static", express.static(path.join(__dirname, "public")));
 
-// app.use("/api", routesApi);
+app.use("/api", routesApi);
 
 app.get("/", (req, res) => {
   res.end("Hello");

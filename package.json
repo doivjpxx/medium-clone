@@ -17,10 +17,9 @@
   "license": "ISC",
   "homepage": "https://bitbucket.org/phonghy/medium-clone#readme",
   "dependencies": {
-    "react": "^16.8.6",
-    "react-dom": "^16.8.6",
     "bcrypt": "^3.0.0",
     "body-parser": "^1.18.3",
+    "cloudinary": "^1.14.0",
     "cookie-parser": "^1.4.3",
     "cors": "^2.8.5",
     "ejs": "^2.6.1",
@@ -28,6 +27,7 @@
     "email-validator": "^2.0.4",
     "express": "^4.16.4",
     "express-session": "^1.15.6",
+    "helmet": "^3.16.0",
     "http-errors": "^1.7.1",
     "jsonwebtoken": "^8.4.0",
     "lodash": "^4.17.11",
@@ -37,6 +37,8 @@
     "multiparty": "^4.1.4",
     "nodemailer": "^5.1.1",
     "randomstring": "^1.1.5",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
     "url": "^0.11.0"
   },
   "devDependencies": {
