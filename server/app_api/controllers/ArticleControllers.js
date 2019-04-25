@@ -149,9 +149,6 @@ module.exports.commentArticle = async (req, res) => {
       _id: id
     });
 
-    console.log(text);
-    console.log(article.comments);
-
     article.comments.push({ text: text, author: userId });
 
     await article.save();
