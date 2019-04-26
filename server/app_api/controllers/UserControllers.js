@@ -3,6 +3,7 @@ const User = require("../models/User");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const config = require("../../config/config");
+const _ = require("lodash");
 
 module.exports.register = async (req, res) => {
   let password = req.body.password;
@@ -102,6 +103,90 @@ module.exports.detailUser = async (req, res) => {
         avatar: user.avatar,
         followers: user.followers,
         following: user.following
+      }
+    });
+  } catch (e) {
+    return res.status(500).json({
+      status: 0,
+      data: {},
+      message: "Lỗi server : " + e.message
+    });
+  }
+};
+
+module.exports.followingUser = async (req, res) => {
+  let userId = req.id;
+  let id = req.params.id;
+  try {
+    let currentUser = await User.findOne({
+      _id: userId
+    });
+
+    let user = await User.findOne({
+      _id: id
+    });
+
+    console.log(currentUser.following);
+    console.log();
+
+    if (
+      _.uniqBy(currentUser.following, id).length > 0 ||
+      _.uniqBy(user.followers, userId).length > 0
+    ) {
+      return res.status(403).json({
+        status: 0,
+        data: {},
+        message: "Bạn đã theo dõi người này rồi!"
+      });
+    }
+
+    currentUser.following.push(id);
+    user.followers.push(currentUser);
+
+    await currentUser.save();
+    await user.save();
+
+    return res.status(201).json({
+      status: 1,
+      data: {
+        currentUser: currentUser.following,
+        user: user.followers
+      }
+    });
+  } catch (e) {
+    return res.status(500).json({
+      status: 0,
+      data: {},
+      message: "Lỗi server : " + e.message
+    });
+  }
+};
+
+module.exports.unfollowingUser = async (req, res) => {
+  let userId = req.id;
+  let id = req.params.id;
+  try {
+    let currentUser = await User.findOne({
+      _id: userId
+    });
+
+    let user = await User.findOne({
+      _id: id
+    });
+
+    currentUser.following = currentUser.following.filter(
+      id => user.followers === id
+    );
+    user.followers = user.followers.filter(id => currentUser.following === id);
+
+    await currentUser.save();
+    await user.save();
+
+    return res.status(201).json({
+      status: 1,
+      data: {
+        currentUser: currentUser.following,
+        user: user.followers
       }
     });
   } catch (e) {

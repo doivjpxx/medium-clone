@@ -5,8 +5,11 @@ mongoose.Promise = global.Promise;
 var envUrl =
   "mongodb+srv://doivjpxx:oDL9kO91Xru1khpN@cluster0-bkdba.mongodb.net/test?retryWrites=true";
 
+const uri =
+  "mongodb+srv://doivjpxx:oDL9kO91Xru1khpN@cluster0-bkdba.mongodb.net/test?retryWrites=true";
+
 var localUrl = `mongodb://127.0.0.1:27017/${config.DB.DATABASE_NAME}`;
-var dbURI = envUrl;
+var dbURI = uri;
 /*if(process.env.NODE_ENV === 'production'){
 	dbURI = process.env.MONGOLAB_URI;
 }*/
