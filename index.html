@@ -2,12 +2,40 @@
 <html>
 
 <head>
-  <title>My React Configuration Setup</title>
+  <title>Medium</title>
+  <link rel="icon" href="assets/img/favicon.ico">
+  <title>Mediumish - A Medium style template by WowThemes.net</title>
+ 
 </head>
 
 <body>
   <div id="root"></div>
-  <script src="./dist/bundle.js"></script>
+  <!-- <script src="./dist/bundle.js"></script> -->
+  <script src="assets/js/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"
+    integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb"
+    crossorigin="anonymous"></script>
+  <script src="assets/js/bootstrap.min.js"></script>
+  <script src="assets/js/ie10-viewport-bug-workaround.js"></script>
+
+
+  <script>
+    window.onscroll = function () { scrollFunction() };
+    function scrollFunction() {
+      
+      if (document.body.scrollTop > 80 || document.documentElement.scrollTop > 80) {
+        document.getElementById("navbar").style.padding = "5px 5px";
+   
+      } 
+      if (document.body.scrollTop > 80 || document.documentElement.scrollTop > 300) {
+            document.getElementById("share").style.display = 'block';         
+      }
+      else {
+        document.getElementById("navbar").style.padding = "20px 10px";
+        document.getElementById("share").style.display = 'none';
+      }
+    }
+    </script>
 </body>
 
 </html>

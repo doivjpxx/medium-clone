@@ -1,5 +1,6 @@
 const HtmlWebPackPlugin = require("html-webpack-plugin");
 
+
 const htmlPlugin = new HtmlWebPackPlugin({
   template: "./index.html",
   filename: "./index.html"
@@ -23,23 +24,32 @@ module.exports = {
         use: ["babel-loader"]
       },
       {
-        test: /\.css$/,
-        use: [
-          {
-            loader: "style-loader"
-          },
-          {
-            loader: "css-loader",
-            options: {
-              modules: true,
-              importLoaders: 1,
-              localIdentName: "[name]_[local]_[hash:base64]",
-              sourceMap: true,
-              minimize: true
-            }
-          }
-        ]
-      }
+        use: ['style-loader', 'css-loader'],
+        exclude: /node_modules/,
+        test: /\.css$/
+       },
+      //  {
+      //   test: /\.(pdf|jpg|png|gif|svg|ico)$/,
+      //   use: [
+      //       {
+      //           loader: 'url-loader',
+      //           options:{
+      //             limit:5000
+      //           }
+      //       },
+      //   ]
+      // },
+     
+      {
+        // ASSET LOADER
+        test: /\.(woff|woff2|ttf|eot)$/,
+        loader: 'file-loader'
+      },
+      {
+        //IMAGE LOADER
+        test: /\.(jpe?g|png|gif|svg)$/i,
+        loader:'file-loader'
+      },
     ]
   },
   plugins: [htmlPlugin]
