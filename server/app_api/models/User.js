@@ -4,6 +4,7 @@ let UserSchema = new mongoose.Schema({
   email: String,
   password: String,
   avatar: String,
+  isVerified: { type: Boolean, default: false},
   followers: [
     {
       type: mongoose.Schema.Types.ObjectId,
