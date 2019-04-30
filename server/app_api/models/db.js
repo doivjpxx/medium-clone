@@ -2,8 +2,9 @@ var mongoose = require("mongoose");
 var config = require("../../config/server");
 mongoose.Promise = global.Promise;
 
-const uri =
-  "mongodb+srv://doivjpxx:oDL9kO91Xru1khpN@cluster0-bkdba.mongodb.net/test?retryWrites=true";
+// const uri =
+//   "mongodb+srv://doivjpxx:@cluster0-bkdba.mongodb.net/test?retryWrites=true";
+const uri = "mongodb+srv://doivjpxx:oDL9kO91Xru1khpN@cluster0-bkdba.mongodb.net/test?retryWrites=true";
 
 var localUrl = `mongodb://127.0.0.1:27017/${config.DB.DATABASE_NAME}`;
 var dbURI = uri;
