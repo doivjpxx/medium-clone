@@ -2,9 +2,6 @@ var mongoose = require("mongoose");
 var config = require("../../config/server");
 mongoose.Promise = global.Promise;
 
-var envUrl =
-  "mongodb+srv://doivjpxx:oDL9kO91Xru1khpN@cluster0-bkdba.mongodb.net/test?retryWrites=true";
-
 const uri =
   "mongodb+srv://doivjpxx:oDL9kO91Xru1khpN@cluster0-bkdba.mongodb.net/test?retryWrites=true";
 

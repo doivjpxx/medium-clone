@@ -10,5 +10,6 @@ router.post("/login", UserController.login);
 router.get("/me", verifyToken, UserController.detailUser);
 router.post("/follow/:id", verifyToken, UserController.followingUser);
 router.post("/unfollow/:id", verifyToken, UserController.unfollowingUser);
+router.get("/confirm/:token", UserController.confirmEmail);
 
 module.exports = router;
