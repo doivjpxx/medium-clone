@@ -28,18 +28,6 @@ module.exports = {
         exclude: /node_modules/,
         test: /\.css$/
        },
-      //  {
-      //   test: /\.(pdf|jpg|png|gif|svg|ico)$/,
-      //   use: [
-      //       {
-      //           loader: 'url-loader',
-      //           options:{
-      //             limit:5000
-      //           }
-      //       },
-      //   ]
-      // },
-     
       {
         // ASSET LOADER
         test: /\.(woff|woff2|ttf|eot)$/,
@@ -51,6 +39,9 @@ module.exports = {
         loader:'file-loader'
       },
     ]
+  },
+  devServer: {
+    historyApiFallback: true,
   },
   plugins: [htmlPlugin]
 };
