@@ -1,12 +1,15 @@
-import React, { Component } from 'react'
-import PostItem from '../../../../containers/home/allPost/PostItem'
+import React, { Component } from "react";
+import PostItem from "../../../../containers/home/allPost/PostItem";
 
 export default class PostAllPost extends Component {
   render() {
-    return(
+    return (
       <div>
-                {/* begin post */}              
-        {this.props.listItem.allPost.map((item)=><PostItem item={item} key={item.id}/>)} 
-      </div>  
-    )
-  }}
+        {/* begin post */}
+        {this.props.listItem.allPost.map(item => (
+          <PostItem item={item} key={item.id} />
+        ))}
+      </div>
+    );
+  }
+}
