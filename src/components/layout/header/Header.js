@@ -5,6 +5,11 @@ import logo from "../../../assets/img/logo.png";
 export default class Header extends Component {
   render() {
     return (
+<<<<<<< HEAD
+      <div>    
+        <nav id="navbar" className="navbar navbar-toggleable-md navbar-light bg-white fixed-top mediumnavigation">
+        <button className="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+=======
       <div>
         {console.log(logo)}
         <nav
@@ -20,6 +25,7 @@ export default class Header extends Component {
             aria-expanded="false"
             aria-label="Toggle navigation"
           >
+>>>>>>> 267486200b5c9399654412e84c8f1fc4e224f1a6
             <span className="navbar-toggler-icon" />
           </button>
           <div className="container">
@@ -71,9 +77,13 @@ export default class Header extends Component {
                 </form>
 
                 <li className="nav-item">
+<<<<<<< HEAD
+                  <Link  className="nav-link"  to="/login">Login</Link>
+=======
                   <Link className="nav-link" to="/login">
                     Log out
                   </Link>
+>>>>>>> 267486200b5c9399654412e84c8f1fc4e224f1a6
                 </li>
               </ul>
               {/* End Search */}

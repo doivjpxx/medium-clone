@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
-import LefShare from './LeftShare'
-import Article from './Article'
-import RelatedPost from './RelatedPost'
+import LefShare from '../../../containers/pages/post/LeftShare'
+import Article from '../../../containers/pages/post/Article'
+import RelatedPost from '../../../containers/pages/post/RelatePost'
 import AlertBar from '../../AlertBar';
 export default class Post extends Component {
   render() {

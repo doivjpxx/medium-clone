@@ -1,7 +1,14 @@
+<<<<<<< HEAD
+import React, { Component } from 'react'
+import SiteTitle from './SiteTitle'
+import PostFeature from '../../../containers/pages/home/postFeature/PostFeature'
+import PostAllPost from '../../../containers/pages/home/allPost/PostAllPost'
+=======
 import React, { Component } from "react";
 import SiteTitle from "./SiteTitle";
 import PostFeature from "../../../containers/home/postFeature/PostFeature";
 import PostAllPost from "./allPost/PostAllPost";
+>>>>>>> 267486200b5c9399654412e84c8f1fc4e224f1a6
 
 export default class Home extends Component {
   render() {
