@@ -6,7 +6,6 @@ export default class Header extends Component {
   render() {
     return (
       <div>    
-        {console.log(logo)}
         <nav id="navbar" className="navbar navbar-toggleable-md navbar-light bg-white fixed-top mediumnavigation">
         <button className="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
             <span className="navbar-toggler-icon" />
@@ -38,7 +37,7 @@ export default class Header extends Component {
               </form>
               
                 <li className="nav-item">
-                  <Link className="nav-link" to="/login">Log out</Link>
+                  <Link  className="nav-link"  to="/login">Login</Link>
                 </li>
               </ul>
               {/* End Search */}

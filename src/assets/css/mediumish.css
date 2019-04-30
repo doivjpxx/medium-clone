@@ -341,7 +341,7 @@ ul.tags li a:hover {
 	text-decoration:none;
 }
 .margtop3rem {
-	margin-top: 3rem;
+	margin-top: 2rem;
 }
 .sep {
 	height:1px;
@@ -384,6 +384,7 @@ ul.tags li a:hover {
 	padding:14px 0;
 	z-index:1;
 }
+
 .form-control::-webkit-input-placeholder {
 	color: rgba(0,0,0,.5);
 }

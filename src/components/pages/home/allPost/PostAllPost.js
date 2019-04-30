@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import PostItem from '../../../../containers/home/allPost/PostItem'
+import PostItem from '../../../../containers/pages/home/allPost/PostItem'
 
 export default class PostAllPost extends Component {
   render() {

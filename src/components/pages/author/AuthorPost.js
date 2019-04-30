@@ -1,4 +1,7 @@
 import React, { Component } from 'react'
+import img8 from '../../../assets/img/demopic/8.jpg'
+import img9 from '../../../assets/img/demopic/9.jpg'
+import img10 from '../../../assets/img/demopic/10.jpg'
 
 export default class AuthorPost extends Component {
   render() {
@@ -10,7 +13,7 @@ export default class AuthorPost extends Component {
             <div className="authorpostbox">
               <div className="card">
                 <a href="author.html">
-                  <img className="img-fluid img-thumb" src="../../../assets/img/demopic/8.jpg" alt="" />
+                  <img className="img-fluid img-thumb" src={img8} alt="" />
                 </a>
                 <div className="card-block">
                   <h2 className="card-title"><a href="post.html">Life is worth living forever and ever</a></h2>
@@ -35,7 +38,7 @@ export default class AuthorPost extends Component {
             <div className="authorpostbox">
               <div className="card">
                 <a href="author.html">
-                  <img className="img-fluid img-thumb" src="../../../assets/img/demopic/10.jpg" alt="" />
+                  <img className="img-fluid img-thumb" src={img9} alt="" />
                 </a>
                 <div className="card-block">
                   <h2 className="card-title"><a href="post.html">Best European capitals to visit and the costs implied</a></h2>
@@ -60,7 +63,7 @@ export default class AuthorPost extends Component {
             <div className="authorpostbox">
               <div className="card">
                 <a href="author.html">
-                  <img className="img-fluid img-thumb" src="../../../assets/img/demopic/9.jpg" alt="" />
+                  <img className="img-fluid img-thumb" src={img10} alt="" />
                 </a>
                 <div className="card-block">
                   <h2 className="card-title"><a href="post.html">10 Things you should learn before visiting</a></h2>

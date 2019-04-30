@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import SiteTitle from './SiteTitle'
-import PostFeature from '../../../containers/home/postFeature/PostFeature'
-import PostAllPost from './allPost/PostAllPost'
+import PostFeature from '../../../containers/pages/home/postFeature/PostFeature'
+import PostAllPost from '../../../containers/pages/home/allPost/PostAllPost'
 
 export default class Home extends Component {
     render() {

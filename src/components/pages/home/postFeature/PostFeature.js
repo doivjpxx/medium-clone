@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import PostItem from '../../../../containers/home/postFeature/PostItem'
+import PostItem from '../../../../containers/pages/home/postFeature/PostItem'
 export default class PostFeature extends Component {
   render() {
     return (        
