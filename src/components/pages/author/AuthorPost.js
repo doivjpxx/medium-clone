@@ -1,11 +1,7 @@
-<<<<<<< HEAD
 import React, { Component } from 'react'
-import img8 from '../../../assets/img/demopic/8.jpg'
-import img9 from '../../../assets/img/demopic/9.jpg'
-import img10 from '../../../assets/img/demopic/10.jpg'
-=======
-import React, { Component } from "react";
->>>>>>> 267486200b5c9399654412e84c8f1fc4e224f1a6
+import img8 from '../../../../assets/img/demopic/8.jpg'
+import img9 from '../../../../assets/img/demopic/9.jpg'
+import img10 from '../../../../assets/img/demopic/10.jpg'
 
 export default class AuthorPost extends Component {
   render() {
@@ -17,15 +13,7 @@ export default class AuthorPost extends Component {
             <div className="authorpostbox">
               <div className="card">
                 <a href="author.html">
-<<<<<<< HEAD
                   <img className="img-fluid img-thumb" src={img8} alt="" />
-=======
-                  <img
-                    className="img-fluid img-thumb"
-                    src="../../../assets/img/demopic/8.jpg"
-                    alt=""
-                  />
->>>>>>> 267486200b5c9399654412e84c8f1fc4e224f1a6
                 </a>
                 <div className="card-block">
                   <h2 className="card-title">
@@ -83,15 +71,7 @@ export default class AuthorPost extends Component {
             <div className="authorpostbox">
               <div className="card">
                 <a href="author.html">
-<<<<<<< HEAD
                   <img className="img-fluid img-thumb" src={img9} alt="" />
-=======
-                  <img
-                    className="img-fluid img-thumb"
-                    src="../../../assets/img/demopic/10.jpg"
-                    alt=""
-                  />
->>>>>>> 267486200b5c9399654412e84c8f1fc4e224f1a6
                 </a>
                 <div className="card-block">
                   <h2 className="card-title">
@@ -149,15 +129,7 @@ export default class AuthorPost extends Component {
             <div className="authorpostbox">
               <div className="card">
                 <a href="author.html">
-<<<<<<< HEAD
                   <img className="img-fluid img-thumb" src={img10} alt="" />
-=======
-                  <img
-                    className="img-fluid img-thumb"
-                    src="../../../assets/img/demopic/9.jpg"
-                    alt=""
-                  />
->>>>>>> 267486200b5c9399654412e84c8f1fc4e224f1a6
                 </a>
                 <div className="card-block">
                   <h2 className="card-title">
