@@ -14,7 +14,36 @@ module.exports.register = async (req, res) => {
   let name = req.body.name;
 
   try {
-    let user = new User();
+    let user = await User.findOne({
+      email: email
+    });
+
+    if(user){
+      return res.status(403).json({
+        status: 0,
+        data: {},
+        message: "Email bị trùng lặp"
+      })
+    }
+
+    if(!name || name.length < 5){
+      return res.status(403).json({
+        status: 0,
+        data: {},
+        message: "Tên quá ngắn"
+      })
+    }
+
+    if(!password || password.length < 5){
+      return res.status(403).json({
+        status: 0,
+        data: {},
+        message: "Password quá ngắn"
+      })
+    }
+
+    user = new User();
+
     user.email = email;
     user.name = name;
     user.password = bcrypt.hashSync(password, 10);
@@ -114,6 +143,14 @@ module.exports.login = async (req, res) => {
   var user = await User.findOne({
     email: email
   });
+
+  if(!user){
+    return res.status(403).json({
+      status: 0,
+      data: {},
+      message: "Sai tài khoản hoặc mặt khẩu"
+    })
+  }
 
   if (await bcrypt.compareSync(password, user.password)) {
     var token = jwt.sign(
