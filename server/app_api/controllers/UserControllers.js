@@ -152,6 +152,14 @@ module.exports.login = async (req, res) => {
     })
   }
 
+  if(user.isVerified === false){
+    return res.status(403).json({
+      status: 0,
+      data: {},
+      message: "Tài khoản của bạn chưa được kích hoạt"
+    })
+  }
+
   if (await bcrypt.compareSync(password, user.password)) {
     var token = jwt.sign(
       {
