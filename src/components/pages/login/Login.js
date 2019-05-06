@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
 import './login.css'
 import './form-elements.css'
-import {Redirect} from 'react-router-dom'
+///import {Redirect} from 'react-router-dom'
 import AlertBar from '../../../containers/AlertBar';
-import axios from 'axios'
+//import axios from 'axios'
 export default class Login extends Component {
   constructor(props){
     super(props);

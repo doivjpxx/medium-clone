@@ -1,2 +1,5 @@
 export const SIGN_IN = 'SIGN_IN'
 export const SIGN_UP = 'SIGN_UP'
+export const LOAD_ARTICLE = 'LOAD_ARTICLE'
+export const POST_ARTICLE = 'POST_ARTICLE'
+export const GET_USER_ARTICLE='GET_USER_ARTICLE'

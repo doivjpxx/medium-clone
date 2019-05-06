@@ -12,7 +12,7 @@ function App() {
       <Header/>
         <Route exact path="/" component={Home} />
         <Route path="/post" component={Post} />
-        <Route path="/author" component={Author} />
+        <Route path="/my-stories" component={Author} />
         <Route path="/login" component={Login}/>
       <Footer/>
     </div>

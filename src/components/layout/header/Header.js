@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import logo from "../../../assets/img/logo.png";
+import medium from "../../../assets/img/medium-1.png";
 
 export default class Header extends Component {
   render() {
@@ -13,7 +13,7 @@ export default class Header extends Component {
           <div className="container">
             {/* Begin Logo */}
             <a className="navbar-brand" href="index.html">
-              <img src={logo} alt="logo" />
+              <img src={medium} alt="logo" />
             </a>
             {/* End Logo */}
             <div
@@ -27,14 +27,14 @@ export default class Header extends Component {
                     Home <span className="sr-only">(current)</span>
                   </Link>
                 </li>
-                <li className="nav-item">
+                {/* <li className="nav-item">
                   <Link className="nav-link" to="/post">
                     Post
                   </Link>
-                </li>
+                </li> */}
                 <li className="nav-item">
-                  <Link className="nav-link" to="/author">
-                    Author
+                  <Link className="nav-link" to="/my-stories">
+                    My Stories
                   </Link>
                 </li>
 
