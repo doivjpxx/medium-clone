@@ -1,10 +1,6 @@
 import React,{Component} from 'react';
-//import {Editor, EditorState,RichUtils} from 'draft-js';
 import './Editor.css'
 import ReactQuill from 'react-quill'; // ES6
-//import * as ReactQuill from 'react-quill'; // Typescript
-///const ReactQuill = require('react-quill'); // CommonJS
-
 /* 
  * Simple editor component that takes placeholder text as a prop 
  */

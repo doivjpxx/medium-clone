@@ -5,7 +5,6 @@ const _ = require("lodash");
 
 module.exports.addArticle = async (req, res) => {
   let userId = req.id;
-
   let text = req.body.text;
   let title = req.body.title;
   let description = req.body.description;
