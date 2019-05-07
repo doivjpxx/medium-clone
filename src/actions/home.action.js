@@ -20,6 +20,7 @@ export function listArticles(){
 //post article to list
 export function addArticle(id, text, title,description ){
     return function(dispatch){
+        let token = localStorage.token
         Axios.post(`${URL}article/add`,{id,title,description,text},{
             headers: {
                 'access_token': `${token}`,

@@ -63,7 +63,7 @@ export default class Login extends Component {
 
   SignUp(evt){
     evt.preventDefault()
-    const {emailRegister,passwordRegister}= this.state
+    const {emailRegister,passwordRegister,name}= this.state
     this.props.SignUp(emailRegister,passwordRegister,name)
   }
 

@@ -7,7 +7,8 @@ export default class ClapIcon extends Component {
       super(props)
       this.state = {
         count: 0,
-        countTotal: this._generateRandomNumber(500,10000),
+        // countTotal: this._generateRandomNumber(500,10000),
+        countTotal:0,
         isClicked: false,
       }
       this._handleClick = this._handleClick.bind(this);
@@ -102,6 +103,7 @@ export default class ClapIcon extends Component {
     }
     
     render() {
+      console.log(this.state.count)
       const {count, countTotal, isClicked} = this.state;
       return getAppContent(count, countTotal, isClicked, this._handleClick)
     }
