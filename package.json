@@ -36,6 +36,7 @@
     "jsonwebtoken": "^8.4.0",
     "lodash": "^4.17.11",
     "medium-editor": "^5.23.3",
+    "mo-js": "^0.288.2",
     "moment": "^2.22.2",
     "mongoose": "^5.2.1",
     "morgan": "^1.9.0",
@@ -51,6 +52,7 @@
     "react-router-dom": "^5.0.0",
     "redux": "^4.0.1",
     "redux-thunk": "^2.3.0",
+    "sass": "^1.20.1",
     "url": "^0.11.0"
   },
   "devDependencies": {

@@ -1,13 +1,12 @@
 import React, { Component } from 'react'
+import ClapIcon from './ClapIcon';
 
 export default class LeftShare extends Component {
     render() {
         return (
             <div className="col-md-2 col-xs-12">
-                <div className="share" id="share">
-                    <p>
-                        Share
-          </p>
+                <div className="share" id="share">                
+                       <ClapIcon/>        
                     <ul>
                         <li>
                             <a target="blank" href="https://twitter.com/home?status=http%3A//www.wowthemes.net">

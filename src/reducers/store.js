@@ -4,7 +4,7 @@ import { homeReducer } from './home.reducer';
 import { LoginReducer} from './Login.Reducer';
 
 const reducer = combineReducers({
-   listUser: homeReducer,
+   list: homeReducer,
    userLogin: LoginReducer
 })
 export const store = createStore(reducer,applyMiddleware(thunk));

@@ -1,4 +1,9 @@
 import {connect} from 'react-redux'
 import PostAllPost from '../../../../components/pages/home/allPost/PostAllPost'
+import listArticles from '../../../../actions/home.action'
 
-export default connect()(PostAllPost)
+const mapStateToProps=state=>({
+    list:state.list
+})
+
+export default connect(mapStateToProps)(PostAllPost)
