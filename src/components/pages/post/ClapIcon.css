@@ -39,6 +39,10 @@ body {
   border-radius: 50%;
   width: 79px;
   height: 79px;
+  
+}
+.clap:focus {
+  outline: none;
 }
 .clap:hover {
   cursor: pointer;
