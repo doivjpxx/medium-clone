@@ -1,13 +1,13 @@
 import Axios from "axios";
 import { LIST_ARTICLE, ADD_ARTICLE,DETAIL_ARTICLE } from "../constants/action.type";
-import {URL} from '../constants/url'
+import {Article} from '../constants/url'
 export function getList (){
     return {type:'GET_LIST'}
 }
 //load all articles in component home (All articles)
 export function listArticles(){
     return function(dispatch){
-        Axios.get(`${URL}articles/list`)
+        Axios.get(Article.ARTICLE_LIST)
         .then((res)=>{
             let articles= res.data
             dispatch({type:LIST_ARTICLE, articles})
@@ -44,7 +44,7 @@ export function addArticle(id, text, title,description ){
 //detail article
 export function detailArticle(id){
     return function(dispatch){
-        axios.get(`${URL}article/:${id}`)
+        axios.get(Article.ARTICLE_EDIT.replace('{id}', id))
         .then((res)=>{
             let article=res.data
             dispatch({type:DETAIL_ARTICLE},article)

@@ -25,6 +25,7 @@
     "cloudinary": "^1.14.0",
     "cookie-parser": "^1.4.3",
     "cors": "^2.8.5",
+    "dotenv-webpack": "^1.7.0",
     "draft-js": "^0.10.5",
     "ejs": "^2.6.1",
     "email-templates": "^2.7.1",

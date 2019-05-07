@@ -5,7 +5,7 @@ import cookies from 'universal-cookie';
 
 export function SignIn(email,password){
     return function(dispatch){
-        Axios.post(`${URL}users/login`,{email,password})
+        Axios.post(User.USER_LOGIN,{email,password})
         .then(res=> {
             dispatch({type:SIGN_IN})
             if (res.data.status===1) {
@@ -22,7 +22,7 @@ export function SignIn(email,password){
 }
 export function SignUp(email,password,name){
     return function(dispatch){
-        Axios.post(`${URL}users/register`,{email,password,name})
+        Axios.post(`${URL}`,{email,password,name})
         .then(res=>{
             dispatch({type:SIGN_UP})
             if(res.status===201) alert("Vui lòng vài email để xác thực!");
