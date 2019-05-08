@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-export default class PostItem extends Component {
+export default class PostItemFeature extends Component {
   render() {
     return (
       <div className="card" key={this.props.item.id}>
@@ -9,7 +9,7 @@ export default class PostItem extends Component {
               <div
                 className="thumbnail"
                 style={{
-                  backgroundImage: `url(${this.props.item.background})`
+                  backgroundImage: "url('https://www.digitalocean.com/assets/community/default_community_sharing-65c1cc547375d6e37cc45195b3686769.png')"
                 }}
               />
             </a>
@@ -17,12 +17,10 @@ export default class PostItem extends Component {
           <div className="col-md-7">
             <div className="card-block">
               <h2 className="card-title">
-                <a href="post.html">{this.props.item.namePost}</a>
+                <a href="post.html">{this.props.item.title}</a>
               </h2>
               <h4 className="card-text">
-                This is a longer card with supporting text below as a natural
-                lead-in to additional content. This content is a little bit
-                longer.
+                {this.props.item.description}
               </h4>
               <div className="metafooter">
                 <div className="wrapfooter">
@@ -30,7 +28,7 @@ export default class PostItem extends Component {
                     <a href="author.html">
                       <img
                         className="author-thumb"
-                        src={this.props.item.avatar}
+                        src={"https://news.liverpool.ac.uk/wp-content/uploads/2019/04/postdoctoral.jpg"}
                         alt="Sal"
                       />
                     </a>

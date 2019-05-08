@@ -92,13 +92,14 @@ export default class ClapIcon extends Component {
   
     
     _handleClick () {
-      this._animationTimeline.replay()
-      this.setState(function(prevState, nextState) {
-        return {
-          count: Math.min(prevState.count + 1, 50),
-          countTotal: prevState.countTotal + 1,
-          isClicked: true
-        }
+      //this.props.clap()
+  this._animationTimeline.replay()
+  this.setState(function(prevState, nextState) {
+    return {
+      count: Math.min(prevState.count + 1, 50),
+      countTotal: prevState.countTotal + 1,
+      isClicked: true
+    }
       })
     }
     

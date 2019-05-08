@@ -1,7 +1,7 @@
 import {SIGN_IN, SIGN_UP} from '../constants/action.type'
 import Axios from 'axios';
-import {URL} from '../constants/url'
-import cookies from 'universal-cookie';
+import {User} from '../constants/api.constants'
+
 
 export function SignIn(email,password){
     return function(dispatch){
@@ -22,7 +22,7 @@ export function SignIn(email,password){
 }
 export function SignUp(email,password,name){
     return function(dispatch){
-        Axios.post(`${URL}`,{email,password,name})
+        Axios.post(User.USER_REGISTER,{email,password,name})
         .then(res=>{
             dispatch({type:SIGN_UP})
             if(res.status===201) alert("Vui lòng vài email để xác thực!");

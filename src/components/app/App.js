@@ -14,6 +14,7 @@ function App() {
         <Route path="/post" component={Post} />
         <Route path="/my-stories" component={Author} />
         <Route path="/login" component={Login}/>
+        <Route path="/post/:id" exact component={Post} />
       <Footer/>
     </div>
   );

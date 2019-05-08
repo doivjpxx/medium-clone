@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import image5 from "../../../../assets/img/demopic/5.jpg";
 
-export default class PostItem extends Component {
+export default class PostItemAllPost extends Component {
   render() {
     return (
       <div className="card">
@@ -9,14 +9,14 @@ export default class PostItem extends Component {
           <img className="img-fluid" src={image5} alt="##" />
         </a>
         <div className="card-block">
+        {/* title */}
           <h2 className="card-title">
             <a href="post.html">
-              Autumn doesn't have to be nostalgic, you know?
+              {this.props.item.title}
             </a>
           </h2>
           <h4 className="card-text">
-            This is a longer card with supporting text below as a natural
-            lead-in to additional content. This content is a little bit longer.
+              {this.props.item.description}
           </h4>
           <div className="metafooter">
             <div className="wrapfooter">

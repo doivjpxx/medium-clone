@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import ClapIcon from './ClapIcon';
+import ClapIcon from '../../../containers/pages/post/Clap';
 
 export default class LeftShare extends Component {
     render() {

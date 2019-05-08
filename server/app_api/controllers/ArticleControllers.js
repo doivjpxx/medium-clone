@@ -126,7 +126,7 @@ module.exports.clap = async (req, res) => {
     await article.save();
     return res.status(200).json({
       status: 1,
-      date: {
+      data: {
         title: article.title,
         claps: article.claps
       },

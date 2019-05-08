@@ -170,3 +170,12 @@ export const defaultState = [
     ]
   }
 ];
+
+
+export const initialState = {
+  articles: [],
+  article: {
+    
+    clap:0
+  }
+}

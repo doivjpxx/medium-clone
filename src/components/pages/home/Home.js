@@ -1,12 +1,17 @@
  
 import React, { Component } from 'react'
 import SiteTitle from './SiteTitle'
-import PostFeature from '../../../containers/pages/home/postFeature/PostFeature'
-import PostAllPost from '../../../containers/pages/home/allPost/PostAllPost'
+import PostItemFeature from './postFeature/PostItem';
+import PostItemAllPost from './allPost/PostItem';
+import { Link } from "react-router-dom";
 
 
 export default class Home extends Component {
+  componentWillMount(){
+    this.props.listArticles();
+  }
   render() {
+    console.log(this.props.list)
     return (
       <div className="container margtop3rem">
         <SiteTitle />
@@ -19,9 +24,16 @@ export default class Home extends Component {
             </h2>
           </div>
           <div className="card-columns listfeaturedtag">
-            {this.props.listUser.map(listItem => (
-              <PostFeature listItem={listItem} key={listItem.id} />
-            ))}
+           
+              {this.props.list.map(item => ( 
+                <div>
+                  <Link to={`/post/:${item.id}`}>
+                    <PostItemFeature item={item} key={item.id}/> 
+                  </Link>          
+                </div>
+                ))}
+                
+             
           </div>
         </section>
         {/* End Featured================================================== */}
@@ -35,9 +47,14 @@ export default class Home extends Component {
           </div>
           <div className="card-columns listrecent">
             {/* begin post  post all post */}
-            {this.props.listUser.map(listItem => (
-              <PostAllPost listItem={listItem} key={listItem.id} />
-            ))}
+            
+             {this.props.list.map(item => (
+               <div>
+                  <Link to={`/post/:${item.id}`}>
+                    <PostItemAllPost item={item} key={item.id}/> 
+                  </Link> 
+              </div>
+            ))} 
 
             {/* end post */}
           </div>

@@ -7,5 +7,7 @@ export const User = {
 export const Article = {
   ARTICLE_LIST: process.env.API_ENDPOINT + '/api/v1/articles/list',
   ARTICLE_ADD: process.env.API_ENDPOINT + '/api/v1/article/add',
-  ARTICLE_EDIT: process.env.API_ENDPOINT + '/api/v1/article/{id}'
+  ARTICLE_EDIT: process.env.API_ENDPOINT + '/api/v1/article/{id}',
+  ARTICLE_CLAP: process.env.API_ENDPOINT + '/api/v1/article/clap/{id}'
 }
+
