@@ -6,15 +6,15 @@ import Home from '../../containers/pages/home/home';
 import Post from '../../containers/pages/post/Post';
 import Author from '../../containers/pages/author/Author'
 import Login from '../../containers/pages/login/Login';
+//import Article from '../../containers/pages/post/Article';
 function App() {
   return (
     <div>
       <Header/>
         <Route exact path="/" component={Home} />
-        <Route path="/post" component={Post} />
         <Route path="/my-stories" component={Author} />
         <Route path="/login" component={Login}/>
-        <Route path="/post/id" exact component={Post} />
+        <Route path="/post/:id" exact component={Post} />
       <Footer/>
     </div>
   );

@@ -1,17 +1,14 @@
- 
 import React, { Component } from 'react'
 import SiteTitle from './SiteTitle'
 import PostItemFeature from '../../../containers/pages/home/postFeature/PostItem';
 import PostItemAllPost from '../../../containers/pages/home/allPost/PostItem';
 import { Link } from "react-router-dom";
 
-
 export default class Home extends Component {
   componentWillMount(){
     this.props.listArticles();
   }
   render() {
-   // console.log(this.props.list)
     return (
       <div className="container margtop3rem">
         <SiteTitle />
@@ -26,7 +23,9 @@ export default class Home extends Component {
           <div className="card-columns listfeaturedtag">        
               {this.props.list.map(item => ( 
                 <div >
-                    <PostItemFeature item={item}  key={item.id}/>                         
+                    <Link to={`/post/${item.id}`}>
+                        <PostItemFeature item={item}  key={item.id}/>  
+                    </Link>                       
                 </div>
                 ))}      
           </div>
@@ -40,8 +39,7 @@ export default class Home extends Component {
             </h2>
           </div>
           <div className="card-columns listrecent">
-            {/* begin post  post all post */}
-            
+            {/* begin post  post all post */}       
              {this.props.list.map(item => (
                <div>
                   <Link to={`/post/${item.id}`}>

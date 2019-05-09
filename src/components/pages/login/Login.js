@@ -69,7 +69,7 @@ export default class Login extends Component {
 
   render() {
     const {emailRegister, passwordRegister,name}= this.state;
-   // if(this.props.validated) return <Redirect to="/post"/>
+    
     return (     
         <div>
           <div className="top-content">

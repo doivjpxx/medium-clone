@@ -1,9 +1,11 @@
 import React, { Component } from 'react'
 
 export default class Article extends Component {
- 
+    componentWillMount(){
+        this.props.detailArticle(this.props.id)
+    }
     render() {
-      //  console.log(this.props.article)
+        //this.props.detailArticle(this.props.match.params.id)
         return (
             <div className="col-md-8 col-md-offset-2 col-xs-12">
                 <div className="mainheading">
