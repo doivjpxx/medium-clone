@@ -3,6 +3,6 @@ import {connect} from 'react-redux'
 import {clap} from '../../../actions/post.action'
 
 const mapStateToProps = state =>({
-    clap: state.clap
+    //clap: state.clap
 })
 export default connect(mapStateToProps)(ClapIcon)

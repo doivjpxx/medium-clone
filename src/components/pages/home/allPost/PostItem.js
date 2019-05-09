@@ -2,18 +2,18 @@ import React, { Component } from "react";
 import image5 from "../../../../assets/img/demopic/5.jpg";
 
 export default class PostItemAllPost extends Component {
+  componentWillMount(){
+   // this.props.detailArticle(this.props.item.id)
+  }
   render() {
+    //this.props.detailArticle(this.props.item.id)
     return (
-      <div className="card">
-        <a href="post.html">
-          <img className="img-fluid" src={image5} alt="##" />
-        </a>
+      <div className="card" key={this.props.item.id}>
+          <img className="img-fluid" src={image5} alt="##" />     
         <div className="card-block">
         {/* title */}
-          <h2 className="card-title">
-            <a href="post.html">
-              {this.props.item.title}
-            </a>
+          <h2 className="card-title">      
+              {this.props.item.title}           
           </h2>
           <h4 className="card-text">
               {this.props.item.description}
@@ -21,17 +21,15 @@ export default class PostItemAllPost extends Component {
           <div className="metafooter">
             <div className="wrapfooter">
               <span className="meta-footer-thumb">
-                <a href="author.html">
                   <img
                     className="author-thumb"
                     src={require("../../../../assets/img/demopic/6.jpg")}
                     alt="Sal"
                   />
-                </a>
               </span>
               <span className="author-meta">
                 <span className="post-name">
-                  <a href="author.html">Sal</a>
+                 Sal
                 </span>
                 <br />
                 <span className="post-date">22 July 2017</span>
@@ -39,7 +37,7 @@ export default class PostItemAllPost extends Component {
                 <span className="post-read">6 min read</span>
               </span>
               <span className="post-read-more">
-                <a href="post.html" title="Read Story">
+                
                   <svg
                     className="svgIcon-use"
                     width={25}
@@ -51,7 +49,7 @@ export default class PostItemAllPost extends Component {
                       fillRule="evenodd"
                     />
                   </svg>
-                </a>
+                
               </span>
             </div>
           </div>

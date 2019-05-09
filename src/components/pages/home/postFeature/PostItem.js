@@ -5,19 +5,19 @@ export default class PostItemFeature extends Component {
       <div className="card" key={this.props.item.id}>
         <div className="row">
           <div className="col-md-5 wrapthumbnail">
-            <a href="post.html">
+           
               <div
                 className="thumbnail"
                 style={{
                   backgroundImage: "url('https://www.digitalocean.com/assets/community/default_community_sharing-65c1cc547375d6e37cc45195b3686769.png')"
                 }}
               />
-            </a>
+    
           </div>
           <div className="col-md-7">
             <div className="card-block">
               <h2 className="card-title">
-                <a href="post.html">{this.props.item.title}</a>
+               {this.props.item.title}
               </h2>
               <h4 className="card-text">
                 {this.props.item.description}
@@ -25,17 +25,17 @@ export default class PostItemFeature extends Component {
               <div className="metafooter">
                 <div className="wrapfooter">
                   <span className="meta-footer-thumb">
-                    <a href="author.html">
+                   
                       <img
                         className="author-thumb"
                         src={"https://news.liverpool.ac.uk/wp-content/uploads/2019/04/postdoctoral.jpg"}
                         alt="Sal"
                       />
-                    </a>
+                  
                   </span>
                   <span className="author-meta">
                     <span className="post-name">
-                      <a href="author.html">Steve</a>
+                     Steve
                     </span>
                     <br />
                     <span className="post-date">22 July 2017</span>
@@ -43,7 +43,7 @@ export default class PostItemFeature extends Component {
                     <span className="post-read">6 min read</span>
                   </span>
                   <span className="post-read-more">
-                    <a href="post.html" title="Read Story">
+                    
                       <svg
                         className="svgIcon-use"
                         width={25}
@@ -55,7 +55,7 @@ export default class PostItemFeature extends Component {
                           fillRule="evenodd"
                         />
                       </svg>
-                    </a>
+                  
                   </span>
                 </div>
               </div>

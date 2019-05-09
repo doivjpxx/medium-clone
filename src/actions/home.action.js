@@ -7,7 +7,7 @@ import {Article} from '../constants/api.constants'
 //load all articles in component home (All articles)
 export function listArticles(){
     return function(dispatch){
-        Axios.get('http://localhost:4000/api/v1/articles/list')
+        Axios.get(Article.ARTICLE_LIST)
         .then((res)=>{
             let articles= res.data.data.articles
             dispatch({type:LIST_ARTICLE, articles})
@@ -45,10 +45,14 @@ export function addArticle(id, text, title,description ){
 //detail article
 export function detailArticle(id){
     return function(dispatch){
-        axios.get(Article.ARTICLE_EDIT.replace('{id}', id))
+        Axios.get(Article.ARTICLE_EDIT.replace('{id}', id))
         .then((res)=>{
-            let article=res.data
-            dispatch({type:DETAIL_ARTICLE},article)
+            //let article=res.data.data
+            dispatch({type:DETAIL_ARTICLE})
+            //console.log(res.data.data)
+        })
+        .catch((err)=>{
+            console.log(err)
         })
     }
 }

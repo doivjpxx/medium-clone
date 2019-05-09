@@ -1,4 +1,5 @@
 import {connect} from 'react-redux'
-import PostItem from '../../../../components/pages/home/postFeature/PostItem'
+import PostItemFeature from '../../../../components/pages/home/postFeature/PostItem'
+import * as action from '../../../../actions/home.action'
 
-export default connect()(PostItem)
+export default connect(null,action)(PostItemFeature)
