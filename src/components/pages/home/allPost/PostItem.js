@@ -3,14 +3,10 @@ import image5 from "../../../../assets/img/demopic/5.jpg";
 
 export default class PostItemAllPost extends Component {
   
-  componentWillMount() {
-    this.props.detailArticle(this.props.item.id)
-}  
   render() {
-    //this.props.detailArticle(this.props.item.id)
-    console.log(this.props.article)
-    return (
-      <div className="card" key={this.props.item.id}>
+    //this.props.detailArticle(this.props.item.id)  
+    return (   
+      <div className="card" key={this.props.item.id} onClick={()=>this.props.detailArticle(this.props.item.id)}>
           <img className="img-fluid" src={image5} alt="##" />     
         <div className="card-block">
         {/* title */}

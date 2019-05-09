@@ -1,7 +1,9 @@
 import React, { Component } from 'react'
 
 export default class Article extends Component {
+ 
     render() {
+      //  console.log(this.props.article)
         return (
             <div className="col-md-8 col-md-offset-2 col-xs-12">
                 <div className="mainheading">
@@ -17,7 +19,7 @@ export default class Article extends Component {
                         </div>
                     </div>
                     {/* End Top Menta */}
-                    <h1 className="posttitle">18 Things You Should Learn Before Moving Into a New Home</h1>
+                    <h1 className="posttitle">{this.props.article.title}</h1>
                 </div>
                 {/* Begin Featured Image */}
                 <img className="featured-image img-fluid" 
@@ -27,7 +29,8 @@ export default class Article extends Component {
                 {/* End Featured Image */}
                 {/* Begin Post Content */}
                 <div className="article-post">
-                    <p>
+                {this.props.article.text}
+                    {/* <p>
                         Termsheet business model canvas user experience churn rate low hanging fruit backing iteration buyer seed money. Virality release launch party channels validation learning curve paradigm shift hypotheses conversion. Stealth leverage freemium venture startup business-to-business accelerator market.
                     </p>
                     <p>
@@ -50,7 +53,7 @@ export default class Article extends Component {
                     </p>
                     <p>
                         Freemium non-disclosure agreement lean startup bootstrapping holy grail ramen MVP iteration accelerator. Strategy market ramen leverage paradigm shift seed round entrepreneur crowdfunding social proof angel investor partner network virality.
-                    </p>
+                    </p> */}
                 </div>
                 {/* End Post Content */}
                 {/* Begin Tags */}

@@ -1,18 +1,21 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 export default class PostItemFeature extends Component {
+  // componentWillMount(){
+  //   this.props.detailArticle(this.props.item.id)
+  // }
   render() {
-    return (
-      <div className="card" key={this.props.item.id}>
+    return (  
+      <div className="card" key={this.props.item.id} onClick={()=>this.props.detailArticle(this.props.item.id)}>
+      <Link to={`/post/${this.props.item.id}`}>
         <div className="row">
-          <div className="col-md-5 wrapthumbnail">
-           
+          <div className="col-md-5 wrapthumbnail">       
               <div
                 className="thumbnail"
                 style={{
                   backgroundImage: "url('https://www.digitalocean.com/assets/community/default_community_sharing-65c1cc547375d6e37cc45195b3686769.png')"
                 }}
-              />
-    
+              />  
           </div>
           <div className="col-md-7">
             <div className="card-block">
@@ -62,7 +65,9 @@ export default class PostItemFeature extends Component {
             </div>
           </div>
         </div>
+        </Link>
       </div>
+      
     );
   }
 }
