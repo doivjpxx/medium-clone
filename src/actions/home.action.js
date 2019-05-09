@@ -47,8 +47,8 @@ export function detailArticle(id){
     return function(dispatch){
         Axios.get(Article.ARTICLE_EDIT.replace('{id}', id))
         .then((res)=>{
-            //let article=res.data.data
-            dispatch({type:DETAIL_ARTICLE})
+            let article=res.data.data
+            dispatch({type:DETAIL_ARTICLE,article})
             //console.log(res.data.data)
         })
         .catch((err)=>{

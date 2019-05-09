@@ -27,7 +27,8 @@ export default class Home extends Component {
               {this.props.list.map(item => ( 
                 <div>
                   <Link to={`/post/${item.id}`}>
-                    <PostItemFeature item={item}/> 
+                  {/* {this.props.detailArticle(item.id)} */}
+                    <PostItemFeature item={item}  key={item.id}/> 
                   </Link>          
                 </div>
                 ))}      
@@ -46,10 +47,9 @@ export default class Home extends Component {
             
              {this.props.list.map(item => (
                <div>
-                  <Link to={`/post/${item.id}`} 
-                  
+                  <Link to={`/post/${item.id}`}                  
                   >
-                    <PostItemAllPost item={item}/> 
+                    <PostItemAllPost item={item}  key={item.id}/> 
                   </Link> 
               </div>
             ))} 
