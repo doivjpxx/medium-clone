@@ -202,7 +202,7 @@ span.post-name a,span.post-read-more a:hover {
 	cursor:pointer;
 }
 .mediumnavigation .navbar-brand img {
-	max-height:30px;
+	max-height:50px;
 	margin-right:5px;
 }
 .mainheading h1.sitetitle {
@@ -387,7 +387,7 @@ ul.tags li a:hover {
 	left:0;
 	background-color:#fff;
 	width:100%;
-	padding:14px 0;
+	padding:8px 0;
 	z-index:1;
 }
 .form-control::-webkit-input-placeholder {

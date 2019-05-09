@@ -3,9 +3,17 @@ import React, { Component } from 'react'
 export default class Article extends Component {
     componentWillMount(){
         this.props.detailArticle(this.props.id)
+      
     }
+
+    //  MyComponent() {
+    //     return <div dangerouslySetInnerHTML={this.props.article.text} />;
+    //   }
     render() {
-        //this.props.detailArticle(this.props.match.params.id)
+        // var parser = new DOMParser()
+        // let content = this.props.article.text
+        // let contents = parser.parseFromString(content, "text/html");
+        // contents.getElementsById('contents')
         return (
             <div className="col-md-8 col-md-offset-2 col-xs-12">
                 <div className="mainheading">
@@ -26,36 +34,13 @@ export default class Article extends Component {
                 {/* Begin Featured Image */}
                 <img className="featured-image img-fluid" 
                         // src="assets/img/demopic/10.jpg" alt 
-                         src={require('../../../assets/img/demopic/10.jpg')} alt="logo"
+                        //  src={require('../../../assets/img/demopic/10.jpg')} alt="logo"
                         />
                 {/* End Featured Image */}
                 {/* Begin Post Content */}
                 <div className="article-post">
-                {this.props.article.text}
-                    {/* <p>
-                        Termsheet business model canvas user experience churn rate low hanging fruit backing iteration buyer seed money. Virality release launch party channels validation learning curve paradigm shift hypotheses conversion. Stealth leverage freemium venture startup business-to-business accelerator market.
-                    </p>
-                    <p>
-                        Holy grail funding non-disclosure agreement advisor ramen bootstrapping ecosystem. Beta crowdfunding iteration assets business plan paradigm shift stealth mass market seed money rockstar niche market marketing buzz market.
-                    </p>
-                    <p>
-                        Termsheet business model canvas user experience churn rate low hanging fruit backing iteration buyer seed money. Virality release launch party channels validation learning curve paradigm shift hypotheses conversion. Stealth leverage freemium venture startup business-to-business accelerator market.
-                    </p>
-                    <p>
-                        Burn rate release facebook termsheet equity technology. Interaction design rockstar network effects handshake creative startup direct mailing. Technology influencer direct mailing deployment return on investment seed round.
-                    </p>
-                    <p>
-                        Termsheet business model canvas user experience churn rate low hanging fruit backing iteration buyer seed money. Virality release launch party channels validation learning curve paradigm shift hypotheses conversion. Stealth leverage freemium venture startup business-to-business accelerator market.
-                    </p>
-                    <blockquote>
-                        Gen-z strategy long tail churn rate seed money channels user experience incubator startup partner network low hanging fruit direct mailing. Client backing success startup assets responsive web design burn rate A/B testing metrics first mover advantage conversion.
-                    </blockquote>
-                    <p>
-                        Termsheet business model canvas user experience churn rate low hanging fruit backing iteration buyer seed money. Virality release launch party channels validation learning curve paradigm shift hypotheses conversion. Stealth leverage freemium venture startup business-to-business accelerator market.
-                    </p>
-                    <p>
-                        Freemium non-disclosure agreement lean startup bootstrapping holy grail ramen MVP iteration accelerator. Strategy market ramen leverage paradigm shift seed round entrepreneur crowdfunding social proof angel investor partner network virality.
-                    </p> */}
+                <p dangerouslySetInnerHTML={{ __html:this.props.article.text }}/>
+                    {console.log(this.props.article)}                 
                 </div>
                 {/* End Post Content */}
                 {/* Begin Tags */}
