@@ -19,23 +19,25 @@ export function listArticles(){
     }
 }
 //post article to list
-export function addArticle(id, text, title,description ){
+export function addArticle(text, title,description ){
     return function(dispatch){
+        const article={
+            text: text,
+            title: title,
+            description:description
+        }
+       // console.log(editorHtml)
         let token = localStorage.token
-        Axios.post(Article.ARTICLE_ADD,{id,title,description,text},{
+        Axios.post(Article.ARTICLE_ADD,article,{
             headers: {
                 'access_token': `${token}`,
             }
         })
         .then((res)=>{
-            const article={
-                id:id,
-                text:text,
-                title:title,
-                description:description
-            }
-            dispatch({type:ADD_ARTICLE,article})
+            let articles = res.data.data
+            dispatch({type:ADD_ARTICLE,articles})
             if(res.status===1) console.log(res.message)
+            console.log(articles)
         })
         .catch((err)=>{
             console.log(err)

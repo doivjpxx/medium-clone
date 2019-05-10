@@ -6,7 +6,7 @@ export default class LeftShare extends Component {
         return (
             <div className="col-md-2 col-xs-12">
                 <div className="share" id="share">                
-                       <ClapIcon/>        
+                       <ClapIcon id={this.props.id} />        
                     <ul>
                         <li>
                             <a target="blank" href="https://twitter.com/home?status=http%3A//www.wowthemes.net">

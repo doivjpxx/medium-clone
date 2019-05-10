@@ -8,11 +8,14 @@ export default class ClapIcon extends Component {
       this.state = {
         count: 0,
         // countTotal: this._generateRandomNumber(500,10000),
-        countTotal:0,
+        //countTotal:this.props.clapCount,
+        //clap:this.props.clap,
         isClicked: false,
       }
       this._handleClick = this._handleClick.bind(this);
     }
+
+ 
   
     componentDidMount() {
       const tlDuration = 300
@@ -92,25 +95,26 @@ export default class ClapIcon extends Component {
   
     
     _handleClick () {
-      //this.props.clap()
+      this.props.clap(this.props.id)
   this._animationTimeline.replay()
   this.setState(function(prevState, nextState) {
     return {
       count: Math.min(prevState.count + 1, 50),
-      countTotal: prevState.countTotal + 1,
+      //countTotal: prevState.countTotal + 1,
       isClicked: true
     }
       })
     }
     
     render() {
-  //    console.log(this.state.count)
-      const {count, countTotal, isClicked} = this.state;
-      return getAppContent(count, countTotal, isClicked, this._handleClick)
+      console.log(this.state)
+      const {count, isClicked} = this.state;
+      const {clapCount}=this.props
+      return getAppContent(count, clapCount, isClicked, this._handleClick)
     }
   }
   
-  function getAppContent(count, countTotal, isClicked, handleClick) {
+  function getAppContent(count, clapCount, isClicked, handleClick) {
     return <div><button id="clap" className="clap" onClick={handleClick}>
     <span>
       {/*<!--  SVG Created by Luis Durazo from the Noun Project  -->*/}
@@ -120,10 +124,10 @@ export default class ClapIcon extends Component {
   </svg>
     </span>
     <span
-      id="clap--count" className="clap--count">+{count}</span>
+      id="clap--count" className="clap--count">+{1}</span>
       
     <span
-      id="clap--count-total" className="clap--count-total">{countTotal}</span>
+      id="clap--count-total" className="clap--count-total">{clapCount}</span>
   </button>
     </div>
   }

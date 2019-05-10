@@ -7,28 +7,64 @@ import ReactQuill from 'react-quill'; // ES6
 export default class Editor extends Component {
   constructor (props) {
     super(props)
-    this.state = { editorHtml: '', theme: 'snow' }
+    this.state = { text: '', theme: 'snow', name:'', description:'', background:'', title:''}
     this.handleChange = this.handleChange.bind(this)
   }
   
   handleChange (html) {
-  	this.setState({ editorHtml: html });
+  	this.setState({ text: html });
   }
   
   handleThemeChange (newTheme) {
     if (newTheme === "core") newTheme = null;
     this.setState({ theme: newTheme })
   }
+
+  onSubmit(evt){
+    evt.preventDefault()
+    const {name, title, background,description,text}= this.state
+    this.props.addArticle(text, title, description)
+  }
   
   render () {
-    console.log(this.state.editorHtml)
+   // console.log(this.state)
+    const {name, title, background,description}= this.state
     return (
-      <div>
+      <div style={{width:`80%`, margin: '0 auto'}}>
         <h3>NEW ARTICLE</h3>
+        <form>
+          <div className="form-group">
+              <label htmlFor="exampleInputEmail1">Article name:</label>
+              <input type="text" className="form-control"   placeholder="Name's article" 
+                      value={name}
+                      onChange={evt=>{this.setState({name: evt.target.value})}}/>
+              {/* <small id="emailHelp" className="form-text text-muted">We'll never share your email with anyone else.</small> */}
+          </div>
+          <div className="form-group">
+              <label htmlFor="exampleInputPassword1">Title</label>
+              <input type="text" className="form-control" placeholder="Title's article" 
+                     value={title}
+                     onChange={evt=>{this.setState({title: evt.target.value})}}/>
+          </div>
+          <div className="form-group">
+              <label htmlFor="exampleInputPassword1">Description</label>
+              <input type="text" className="form-control" id="exampleInputPassword1" placeholder="Description" 
+                     value={description}
+                     onChange={evt=>{this.setState({description: evt.target.value})}}/>
+          </div>
+          <div className="form-group">
+              <label htmlFor="exampleInputPassword1">Background</label>
+              <input type="text" className="form-control" id="exampleInputPassword1" placeholder="URL's background" 
+                       value={background}
+                       onChange={evt=>{this.setState({name: evt.target.background})}}/>
+          </div>
+       
+          <div className="form-group">
+          <label htmlFor="exampleInputPassword1">Content</label>
         <ReactQuill 
           theme={this.state.theme}
           onChange={this.handleChange}
-          value={this.state.editorHtml}
+          value={this.state.text}
           modules={Editor.modules}
           formats={Editor.formats}
           bounds={'.app'}
@@ -43,6 +79,9 @@ export default class Editor extends Component {
             <option value="core">Core</option>
           </select>
         </div> */}
+        </div>
+         <button type="submit" className="btn btn-primary" onClick={(evt)=>this.onSubmit(evt)}>Submit</button>
+        </form>
        </div>
      )
   }
