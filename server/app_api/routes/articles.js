@@ -9,6 +9,7 @@ router.get("/list", ArticleController.listArticles);
 router.post("/add", verifyToken, ArticleController.addArticle);
 router.patch("/clap/:id", verifyToken, ArticleController.clap);
 router.get("/:id", ArticleController.detailArticle);
+router.put("/:id", verifyToken, ArticleController.editArticle);
 router.post("/comment/:id", verifyToken, ArticleController.commentArticle);
 
 module.exports = router;
