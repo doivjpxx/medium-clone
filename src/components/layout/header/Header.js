@@ -12,9 +12,9 @@ export default class Header extends Component {
           </button>
           <div className="container">
             {/* Begin Logo */}
-            <a className="navbar-brand" href="index.html">
+            <Link className="navbar-brand" to="/">
               <img src={medium} alt="logo" />
-            </a>
+            </Link>
             {/* End Logo */}
             <div
               className="collapse navbar-collapse"
@@ -59,7 +59,7 @@ export default class Header extends Component {
                 </form>
 
                 <li className="nav-item">
-                  <Link  className="nav-link"  to="/login">Login</Link>
+                {this.props.checkLogin?<p>Phát</p>:<Link  className="nav-link"  to="/login">Login</Link>}               
                 </li>
               </ul>
               {/* End Search */}

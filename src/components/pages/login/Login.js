@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import './login.css'
 import './form-elements.css'
-///import {Redirect} from 'react-router-dom'
+import {Redirect} from 'react-router-dom'
 import AlertBar from '../../../containers/AlertBar';
 //import axios from 'axios'
 export default class Login extends Component {
@@ -13,63 +13,26 @@ export default class Login extends Component {
       name:'',
       emailLogin:'',
       passwordLogin:'',
+      avatar:''
     }
     this.SignUp=this.SignUp.bind(this)
      this.SignIn=this.SignIn.bind(this)
   }
-
-  //  SignIn(evt){
-  //    evt.preventDefault();
-  //    try{
-  //      const uri = 'http://localhost:4000/api/v1/users/login'
-  //      const email = this.state.emailLogin;
-  //      const password= this.state.passwordLogin;
-  //      axios.post(uri,{email,password})
-  //       .then(res=>{
-  //         console.log(res.status)
-  //         if(res.status==200)
-  //          { 
-  //             console.log(" Đăng nhập thành công!");
-  //             this.setState({redirect:true})
-  //           }
-  //       })
-  //    }
-  //    catch(err){
-  //     console.error(err)
-  //    }
-  //  }
 
   SignIn(evt){
     evt.preventDefault()
     this.props.SignIn(this.state.emailLogin,this.state.passwordLogin)
   }
   
-  //  SignUp(evt){
-  //    evt.preventDefault()
-  //     try{
-  //       const uri='http://localhost:4000/api/v1/users/register' 
-  //       const email= this.state.emailRegister
-  //       const password= this.state.passwordRegister
-  //       const name= this.state.name
-  //       axios.post(uri,{email,password,name})
-  //       .then(res => {
-  //         console.log(res.data);
-  //       })  
-  //     }
-  //       catch(err){
-  //         console.error(err);
-  //       };   
-  //     }
-
   SignUp(evt){
     evt.preventDefault()
-    const {emailRegister,passwordRegister,name}= this.state
-    this.props.SignUp(emailRegister,passwordRegister,name)
+    const {emailRegister,passwordRegister,name,avatar}= this.state
+    this.props.SignUp(emailRegister,passwordRegister,name, avatar)
   }
 
   render() {
-    const {emailRegister, passwordRegister,name}= this.state;
-    
+    const {emailRegister, passwordRegister,name,avatar}= this.state;
+    if(this.props.checkLogin) return <Redirect to='/'/>
     return (     
         <div>
           <div className="top-content">
@@ -147,17 +110,22 @@ export default class Login extends Component {
                         <form role="form" action method="post" className="registration-form">
                           <div className="form-group">
                             <label className="sr-only" htmlFor="form-last-name">Name</label>
-                            <input type="text"  placeholder="Your name..." className="form-last-name form-control" id="form-last-name" 
+                            <input type="text"  placeholder="Your name..." className="form-last-name form-control"  
                             value={name} onChange={(evt)=>{this.setState({name:evt.target.value})}}/>
+                          </div>
+                          <div className="form-group">
+                            <label className="sr-only" htmlFor="form-avatar">Avatar</label>
+                            <input type="text"  placeholder="Link avatar" className="form-last-name form-control"  
+                            value={avatar} onChange={(evt)=>{this.setState({avatar:evt.target.value})}}/>
                           </div>
                           <div className="form-group">
                             <label className="sr-only" htmlFor="form-email">Email</label>
                             <input type="text" placeholder="email..." className="form-username form-control" 
                               value={emailRegister} onChange={(evt)=>{this.setState({emailRegister: evt.target.value})}}/>
-                          </div>
+                          </div>                        
                           <div className="form-group">
-                            <label className="sr-only" htmlFor="form-about-yourself">About yourself</label>
-                            <input type="password"  placeholder="Password..." className="form-password form-control" id="form-password" 
+                            <label className="sr-only" htmlFor="form-password">Password</label>
+                            <input type="password"  placeholder="Password..." className="form-password form-control"  
                               value={passwordRegister} onChange={(evt)=>{this.setState({passwordRegister: evt.target.value})}}/>
                           </div>
                           <button type="submit" className="btn" onClick={this.SignUp}>Sign me up!</button>

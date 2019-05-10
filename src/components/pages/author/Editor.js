@@ -1,13 +1,11 @@
 import React,{Component} from 'react';
 import './Editor.css'
 import ReactQuill from 'react-quill'; // ES6
-/* 
- * Simple editor component that takes placeholder text as a prop 
- */
+
 export default class Editor extends Component {
   constructor (props) {
     super(props)
-    this.state = { text: '', theme: 'snow', name:'', description:'', background:'', title:''}
+    this.state = { text: '', theme: 'snow', description:'', background:'', title:''}
     this.handleChange = this.handleChange.bind(this)
   }
   
@@ -22,24 +20,16 @@ export default class Editor extends Component {
 
   onSubmit(evt){
     evt.preventDefault()
-    const {name, title, background,description,text}= this.state
+    const {title, background,description,text}= this.state
     this.props.addArticle(text, title, description)
   }
   
   render () {
-   // console.log(this.state)
     const {name, title, background,description}= this.state
     return (
       <div style={{width:`80%`, margin: '0 auto'}}>
         <h3>NEW ARTICLE</h3>
         <form>
-          <div className="form-group">
-              <label htmlFor="exampleInputEmail1">Article name:</label>
-              <input type="text" className="form-control"   placeholder="Name's article" 
-                      value={name}
-                      onChange={evt=>{this.setState({name: evt.target.value})}}/>
-              {/* <small id="emailHelp" className="form-text text-muted">We'll never share your email with anyone else.</small> */}
-          </div>
           <div className="form-group">
               <label htmlFor="exampleInputPassword1">Title</label>
               <input type="text" className="form-control" placeholder="Title's article" 

@@ -1,19 +1,19 @@
 import {SIGN_IN, SIGN_UP} from '../constants/action.type'
 import Axios from 'axios';
 import {User} from '../constants/api.constants'
-import {Redirect} from 'react-router-dom'
 
 
 export function SignIn(email,password){
     return function(dispatch){
         Axios.post(User.USER_LOGIN,{email,password})
         .then(res=> {
-            dispatch({type:SIGN_IN})
+            const authToken = res.data.data.token;
+            const checkLogin = res.data.auth
+            dispatch({type:SIGN_IN,checkLogin})
+            console.log(res.data.data.auth)
             if (res.data.status===1) {
-                alert("Đăng nhập thành công!!")
-                const authToken = res.data.data.token;
-                localStorage.setItem('token', authToken);
-                 <Redirect to="http://localhost:4000/home"/>    
+                alert("Đăng nhập thành công!!")          
+                localStorage.setItem('token', authToken);              
             };
         })
         .catch(error =>{

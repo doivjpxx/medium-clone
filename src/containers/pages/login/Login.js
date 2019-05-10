@@ -5,6 +5,6 @@ import {SignIn,SignUp} from '../../../actions/Login.action'
 const mapDispatchToProps={
  SignIn, SignUp
 }
-const mapStateToProps= state=>({validated:state.userLogin})
+const mapStateToProps= state=>({checkLogin:state.checkLogin})
 
 export default connect(mapStateToProps,mapDispatchToProps)(Login)
