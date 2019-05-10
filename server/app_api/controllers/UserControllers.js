@@ -12,6 +12,7 @@ module.exports.register = async (req, res) => {
   let password = req.body.password;
   let email = req.body.email;
   let name = req.body.name;
+  let avatar = req.body.avatar;
 
   try {
     let user = await User.findOne({
@@ -47,6 +48,7 @@ module.exports.register = async (req, res) => {
     user.email = email;
     user.name = name;
     user.password = bcrypt.hashSync(password, 10);
+    user.avatar = avatar;
 
     await user.save();
 

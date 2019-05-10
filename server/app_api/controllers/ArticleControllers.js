@@ -8,7 +8,7 @@ module.exports.addArticle = async (req, res) => {
   let text = req.body.text;
   let title = req.body.title;
   let description = req.body.description;
-  // let feature_img = req.file.feature_img;
+  let feature_img = req.file.feature_img;
 
   try {
     let article = new Article();
@@ -17,7 +17,7 @@ module.exports.addArticle = async (req, res) => {
     article.title = title;
     article.claps = 0;
     article.description = description;
-
+    article.feature_img = feature_img;
     article.author = userId;
 
     await article.save();
@@ -47,7 +47,7 @@ module.exports.listArticles = async (req, res) => {
     var query = {};
 
     let articles = await Article.find(query)
-      // .populate('')
+      .populate('author')
       .sort({
         createAt: -1
       })
@@ -63,7 +63,8 @@ module.exports.listArticles = async (req, res) => {
           title: article.title,
           text: article.text,
           claps: article.claps,
-          description: article.description
+          description: article.description,
+          author: article.author.name
         };
       })
     );
@@ -102,7 +103,7 @@ module.exports.detailArticle = async (req, res) => {
         description: article.description,
         claps: article.claps,
         author: {
-          name: article.author.name
+          name: article.author.name,
         }
       }
     });
@@ -165,3 +166,96 @@ module.exports.commentArticle = async (req, res) => {
     });
   }
 };
+
+module.exports.editArticle = async (req, res) => {
+  const userId = req.id;
+  const id = req.params.id;
+
+  let text = req.body.text;
+  let title = req.body.title;
+  let description = req.body.description;
+
+  try {
+    let article = await Article.findOne({
+      _id: id
+    });
+
+    if(!article){
+      return res.status(400).json({
+        status: 0,
+        data: {},
+        message: "Không tìm thấy bài viết"
+      })
+    }
+
+    if(article.author._id !== userId){
+      return res.status(400).json({
+        status: 0,
+        data: {},
+        message: "Bạn không có quyền chỉnh sửa ở đây"
+      })
+    }
+
+    article.text = text;
+    article.title = title;
+    article.description = description;
+    article.feature_img = feature_img;
+
+    await article.save();
+
+    return res.status(200).json({
+      status: 1,
+      data: {
+        article
+      },
+      message: "Bài viết đã chỉnh sửa thành công!"
+    })
+  }
+
+  catch(e){
+    return res.status(500).json({
+      status: 0,
+      data: {},
+      message: "Lỗi server : " + e.message
+    })
+  }
+}
+
+module.exports.deleteArticle = async (req, res) => {
+  const userId = req.id;
+  const id = req.params.id;
+
+  try {
+    let article = await Article.findOne({
+      _id: id
+    });
+
+    if(article.author._id !== userId) {
+      return res.status(400).json({
+        status: 0,
+        data: {},
+        message: "Bạn không có đặc quyền để xóa"
+      })
+    }
+
+    article = await Article.findOneAndDelete({
+      _id: id
+    })
+
+    return res.status(200).json({
+      status: 1,
+      data: {
+        article
+      },
+      message: "Bài viết đã xóa thành công!"
+    })
+  }
+
+  catch(e){
+    return res.status(500).json({
+      status: 0,
+      data: {},
+      message: "Lỗi server : " + e.message
+    })
+  }
+}
