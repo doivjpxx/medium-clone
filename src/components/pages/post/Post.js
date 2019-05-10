@@ -10,7 +10,7 @@ export default class Post extends Component {
       <div className="container margtop3rem">
         <div className="row">       
           {/* Begin Fixed Left Share */}      
-          <LefShare />
+          <LefShare id={id}/>
           {/* Begin Post */}
           <Article id={id}/>
         </div>

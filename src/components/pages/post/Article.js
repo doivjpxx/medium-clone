@@ -2,25 +2,17 @@ import React, { Component } from 'react'
 
 export default class Article extends Component {
     componentWillMount(){
-        this.props.detailArticle(this.props.id)
-      
+        this.props.detailArticle(this.props.id)    
     }
 
-    //  MyComponent() {
-    //     return <div dangerouslySetInnerHTML={this.props.article.text} />;
-    //   }
     render() {
-        // var parser = new DOMParser()
-        // let content = this.props.article.text
-        // let contents = parser.parseFromString(content, "text/html");
-        // contents.getElementsById('contents')
         return (
             <div className="col-md-8 col-md-offset-2 col-xs-12">
                 <div className="mainheading">
                     {/* Begin Top Meta */}
                     <div className="row post-top-meta">
                         <div className="col-md-2">
-                            <a href="author.html"><img className="author-thumb" src={require('../../../assets/img/demopic/1.jpg')} alt="Sal" /></a>
+                            <a href="author.html"><img className="author-thumb" src={"https://www.topcv.vn/images/mbti/web/intj.png"} alt="Sal" /></a>
                         </div>
                         <div className="col-md-10">
                             <a className="link-dark" href="author.html">Sal</a><a href="###" className="btn follow">Follow</a>
@@ -32,10 +24,7 @@ export default class Article extends Component {
                     <h1 className="posttitle">{this.props.article.title}</h1>
                 </div>
                 {/* Begin Featured Image */}
-                <img className="featured-image img-fluid" 
-                        // src="assets/img/demopic/10.jpg" alt 
-                        //  src={require('../../../assets/img/demopic/10.jpg')} alt="logo"
-                        />
+                <img className="featured-image img-fluid" />
                 {/* End Featured Image */}
                 {/* Begin Post Content */}
                 <div className="article-post">
