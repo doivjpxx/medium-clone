@@ -224,18 +224,20 @@ module.exports.deleteArticle = async (req, res) => {
   const userId = req.id;
   const id = req.params.id;
 
-  // try {
-  //   let article = await Article.findOne({
-  //     _id: id
-  //   });
+  try {
+    let article = await Article.findOne({
+      _id: id
+    });
 
-  //   if(article.author._id !== userId) {
-  //     return res.status(400).json({
-  //       status: 0,
-  //       data: {},
-  //       message: "Bạn không có đặc quyền để xóa"
-  //     })
-  //   }
+    if(article.author._id.toString() !== userId.toString()) {
+      console.log(userId);
+      console.log(article.author);
+      return res.status(400).json({
+        status: 0,
+        data: {},
+        message: "Bạn không có đặc quyền để xóa"
+      })
+    }
 
     article = await Article.findOneAndDelete({
       _id: id
@@ -250,11 +252,11 @@ module.exports.deleteArticle = async (req, res) => {
     })
   }
 
-//   catch(e){
-//     return res.status(500).json({
-//       status: 0,
-//       data: {},
-//       message: "Lỗi server : " + e.message
-//     })
-//   }
-// }
+  catch(e){
+    return res.status(500).json({
+      status: 0,
+      data: {},
+      message: "Lỗi server : " + e.message
+    })
+  }
+}
