@@ -15,8 +15,8 @@ export default class Post extends Component {
           <Article id={id}/>
         </div>
         <div className="hideshare">
-        </div>
-        <RelatedPost />
+        </div>    
+          <RelatedPost />
         <AlertBar />
       </div>
     )

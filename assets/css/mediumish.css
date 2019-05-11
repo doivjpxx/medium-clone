@@ -7,6 +7,7 @@ License: https://www.wowthemes.net/freebies-license/
 /* .navar{
 	z-index: 5;
 } */
+
 .sticky {
 	position: fixed;
 	top: 0;
@@ -80,6 +81,7 @@ section {
 }
 .listfeaturedtag .card-block {
 	padding-left:0;
+	height: 300px;
 }
 .listfeaturedtag h2.card-title,.listrecent h2.card-title {
 	font-size:1.3rem;

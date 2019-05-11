@@ -23,7 +23,7 @@ export default class Article extends Component {
                     <h1 className="posttitle">{this.props.article.title}</h1>
                 </div>
                 {/* Begin Featured Image */}
-                <img className="featured-image img-fluid" />
+                {/* <img className="featured-image img-fluid" /> */}
                 {/* End Featured Image */}
                 {/* Begin Post Content */}
                 <div className="article-post">

@@ -1,5 +1,5 @@
-import {SIGN_IN} from '../constants/action.type'
-import {SIGN_UP} from '../constants/action.type'
+import {SIGN_IN,SIGN_UP,DETAIL_USER} from '../constants/action.type'
+
 
 export function  LoginReducer(state={email:'', password:'', name:''},action ){
  if(action.type===SIGN_IN) return  state
@@ -8,9 +8,13 @@ export function  LoginReducer(state={email:'', password:'', name:''},action ){
 }
 
 export function checkLogin(state=false,action){
-    if(action.type===SIGN_IN) return checkLogin
-        
+    if(action.type===SIGN_IN) return checkLogin       
     console.log(state)
+    return state
+}
+
+export function detailUser(state={},action){
+    if (action.type === DETAIL_USER) return action.user
     return state
 }
 

@@ -39,16 +39,13 @@ export default class Login extends Component {
             <div className="inner-bg">
               <div className="container">
                 <div className="row">
-                  <div className="col-sm-8 col-sm-offset-2 text">
-                    <h1>Bootstrap Login &amp; Register Forms</h1>
-                    <div className="description">
-                      <p>
-                        This is a free responsive <strong>"login and register forms"</strong> template made with Bootstrap. 
-                        Download it on <a href="http://azmind.com" target="blank"><strong>AZMIND</strong></a>, 
-                        customize and use it as you like!
-                      </p>
-                    </div>
-                  </div>
+                <div className="mainheading">
+                  <h1 className="sitetitle">Adventure is the best way to learn</h1>
+                  <p className="lead">
+                  You’ll never be brave if you do not get hurt. You’ll never learn if you do not make mistakes. You’ll never be successful if you do not encounter failure. 
+                    <img style={{marginTop:50}} src={"https://redbackstudios.in/images/Android-Mobile-Application-Development-letsnurture.png"}/>
+                  </p>
+                </div>
                 </div>
                 <div className="row">
                   <div className="col-sm-5">

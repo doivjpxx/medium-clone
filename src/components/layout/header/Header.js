@@ -3,6 +3,10 @@ import { Link } from "react-router-dom";
 import medium from "../../../assets/img/medium-1.png";
 
 export default class Header extends Component {
+  componentWillMount(){
+    this.props.detailUser()
+    console.log(this.props.user)
+  }
   render() {
     return (
       <div>    
@@ -59,8 +63,9 @@ export default class Header extends Component {
                 </form>
 
                 <li className="nav-item">
-                {this.props.checkLogin?<p>Phát</p>:<Link  className="nav-link"  to="/login">Login</Link>}               
+                {this.props.checkLogin?<img src={`${this.props.user.avatar}`}/>:<Link  className="nav-link"  to="/login">Login</Link>}               
                 </li>
+                {console.log(this.props.user)}
               </ul>
               {/* End Search */}
             </div>
