@@ -8,7 +8,7 @@ module.exports.addArticle = async (req, res) => {
   let text = req.body.text;
   let title = req.body.title;
   let description = req.body.description;
-  let feature_img = req.file.feature_img;
+  let feature_img = req.body.feature_img;
 
   try {
     let article = new Article();
@@ -62,6 +62,7 @@ module.exports.listArticles = async (req, res) => {
           id: article._id,
           title: article.title,
           text: article.text,
+          feature_img: article.feature_img,
           claps: article.claps,
           description: article.description,
           author: article.author.name
@@ -102,9 +103,7 @@ module.exports.detailArticle = async (req, res) => {
         text: article.text,
         description: article.description,
         claps: article.claps,
-        author: {
-          name: article.author.name,
-        }
+        author: article.author.name
       }
     });
   } catch (e) {
@@ -225,18 +224,18 @@ module.exports.deleteArticle = async (req, res) => {
   const userId = req.id;
   const id = req.params.id;
 
-  try {
-    let article = await Article.findOne({
-      _id: id
-    });
+  // try {
+  //   let article = await Article.findOne({
+  //     _id: id
+  //   });
 
-    if(article.author._id !== userId) {
-      return res.status(400).json({
-        status: 0,
-        data: {},
-        message: "Bạn không có đặc quyền để xóa"
-      })
-    }
+  //   if(article.author._id !== userId) {
+  //     return res.status(400).json({
+  //       status: 0,
+  //       data: {},
+  //       message: "Bạn không có đặc quyền để xóa"
+  //     })
+  //   }
 
     article = await Article.findOneAndDelete({
       _id: id
@@ -251,11 +250,11 @@ module.exports.deleteArticle = async (req, res) => {
     })
   }
 
-  catch(e){
-    return res.status(500).json({
-      status: 0,
-      data: {},
-      message: "Lỗi server : " + e.message
-    })
-  }
-}
+//   catch(e){
+//     return res.status(500).json({
+//       status: 0,
+//       data: {},
+//       message: "Lỗi server : " + e.message
+//     })
+//   }
+// }

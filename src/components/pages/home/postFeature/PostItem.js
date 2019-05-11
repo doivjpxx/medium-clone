@@ -9,7 +9,7 @@ export default class PostItemFeature extends Component {
                 <div
                   className="thumbnail"
                   style={{
-                    backgroundImage: "url('https://www.digitalocean.com/assets/community/default_community_sharing-65c1cc547375d6e37cc45195b3686769.png')"
+                    backgroundImage: `url(${this.props.item.feature_img})`
                   }}
                 />  
             </div>
@@ -32,7 +32,7 @@ export default class PostItemFeature extends Component {
                     </span>
                     <span className="author-meta">
                       <span className="post-name">
-                      Steve
+                      {this.props.item.author}
                       </span>
                       <br />
                       <span className="post-date">22 July 2017</span>

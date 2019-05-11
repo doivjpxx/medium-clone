@@ -5,7 +5,7 @@ import ReactQuill from 'react-quill'; // ES6
 export default class Editor extends Component {
   constructor (props) {
     super(props)
-    this.state = { text: '', theme: 'snow', description:'', background:'', title:''}
+    this.state = { text: '', theme: 'snow', description:'', feature_img:'', title:''}
     this.handleChange = this.handleChange.bind(this)
   }
   
@@ -20,12 +20,12 @@ export default class Editor extends Component {
 
   onSubmit(evt){
     evt.preventDefault()
-    const {title, background,description,text}= this.state
-    this.props.addArticle(text, title, description)
+    const {title, feature_img,description,text}= this.state
+    this.props.addArticle(text, title,description,feature_img)
   }
   
   render () {
-    const {name, title, background,description}= this.state
+    const { title,feature_img,description}= this.state
     return (
       <div style={{width:`80%`, margin: '0 auto'}}>
         <h3>NEW ARTICLE</h3>
@@ -45,8 +45,8 @@ export default class Editor extends Component {
           <div className="form-group">
               <label htmlFor="exampleInputPassword1">Background</label>
               <input type="text" className="form-control" id="exampleInputPassword1" placeholder="URL's background" 
-                       value={background}
-                       onChange={evt=>{this.setState({name: evt.target.background})}}/>
+                       value={feature_img}
+                       onChange={evt=>{this.setState({feature_img: evt.target.value})}}/>
           </div>
        
           <div className="form-group">

@@ -4,7 +4,6 @@ export default class Article extends Component {
     componentWillMount(){
         this.props.detailArticle(this.props.id)    
     }
-
     render() {
         return (
             <div className="col-md-8 col-md-offset-2 col-xs-12">
@@ -15,7 +14,7 @@ export default class Article extends Component {
                             <a href="author.html"><img className="author-thumb" src={"https://www.topcv.vn/images/mbti/web/intj.png"} alt="Sal" /></a>
                         </div>
                         <div className="col-md-10">
-                            <a className="link-dark" href="author.html">Sal</a><a href="###" className="btn follow">Follow</a>
+                            <a className="link-dark" href="author.html">{this.props.article.author}</a><a href="###" className="btn follow">Follow</a>
                             <span className="author-description">Founder of WowThemes.net and creator of <b>"Mediumish"</b> theme that you're currently previewing. Developing professional premium themes, templates, plugins, scripts since 2012.</span>
                             <span className="post-date">22 July 2017</span><span className="dot" /><span className="post-read">6 min read</span>
                         </div>
@@ -35,10 +34,10 @@ export default class Article extends Component {
                 {/* Begin Tags */}
                 <div className="after-post-tags">
                     <ul className="tags">
-                        <li><a href="##">Design</a></li>
-                        <li><a href="##">Growth Mindset</a></li>
-                        <li><a href="##">Productivity</a></li>
-                        <li><a href="##">Personal Growth</a></li>
+                        <li><a href="##">ReactJs</a></li>
+                        <li><a href="##">Javacript</a></li>
+                        <li><a href="##">NodeJs</a></li>
+                        <li><a href="##">MongoDB</a></li>
                     </ul>
                 </div>
                 {/* End Tags */}

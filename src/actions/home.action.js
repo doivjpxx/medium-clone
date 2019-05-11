@@ -19,14 +19,14 @@ export function listArticles(){
     }
 }
 //post article to list
-export function addArticle(text, title,description ){
+export function addArticle(text, title,description,feature_img ){
     return function(dispatch){
         const article={
             text: text,
             title: title,
-            description:description
+            description:description,
+            feature_img:feature_img,
         }
-       // console.log(editorHtml)
         let token = localStorage.token
         Axios.post(Article.ARTICLE_ADD,article,{
             headers: {
