@@ -90,6 +90,7 @@ module.exports.listArticles = async (req, res) => {
 
 module.exports.detailArticle = async (req, res) => {
   let id = req.params.id;
+ 
 
   try {
     const article = await Article.findOne({
@@ -103,7 +104,8 @@ module.exports.detailArticle = async (req, res) => {
         text: article.text,
         description: article.description,
         claps: article.claps,
-        author: article.author.name
+        author: article.author.name,
+        avatar:article.author.avatar
       }
     });
   } catch (e) {

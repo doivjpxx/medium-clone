@@ -11,10 +11,11 @@ export default class Article extends Component {
                     {/* Begin Top Meta */}
                     <div className="row post-top-meta">
                         <div className="col-md-2">
-                            <a href="author.html"><img className="author-thumb" src={"https://www.topcv.vn/images/mbti/web/intj.png"} alt="Sal" /></a>
+                            <img className="author-thumb" src={`${this.props.article.avatar}`} alt="author" />
+                            {console.log(this.props.acticle)}
                         </div>
                         <div className="col-md-10">
-                            <a className="link-dark" href="author.html">{this.props.article.author}</a><a href="###" className="btn follow">Follow</a>
+                            <div className="link-dark" href="author.html">{this.props.article.author}</div><div href="###" className="btn follow">Follow</div>
                             <span className="author-description">Founder of WowThemes.net and creator of <b>"Mediumish"</b> theme that you're currently previewing. Developing professional premium themes, templates, plugins, scripts since 2012.</span>
                             <span className="post-date">22 July 2017</span><span className="dot" /><span className="post-read">6 min read</span>
                         </div>

@@ -1,4 +1,4 @@
-import {SIGN_IN, SIGN_UP, DETAIL_USER} from '../constants/action.type'
+import {SIGN_IN, SIGN_UP, DETAIL_USER,LOGOUT_USER} from '../constants/action.type'
 import Axios from 'axios';
 import {User} from '../constants/api.constants'
 
@@ -13,8 +13,10 @@ export function SignIn(email,password){
             console.log(res.data.data.auth)
             if (res.data.status===1) {
                 alert("Đăng nhập thành công!!")          
-                localStorage.setItem('token', authToken);              
+                localStorage.setItem('token', authToken);   
+                window.location.reload()           
             };
+            
         })
         .catch(error =>{
                 console.log(error)
@@ -29,11 +31,23 @@ export function SignUp(email,password,name,avatar){
             dispatch({type:SIGN_UP})
             if(res.data.status===1) alert("Vui lòng vài email để xác thực!");
             if(res.status===0) alert("Email đã tồn tại!");
+           
         })
         .catch(error=>{
                 console.error(error)
             }
         )
+    }
+}
+
+export function logout(){
+    return function(dispatch){
+        Axios.get(User.USER_LOGOUT)   
+        .then((res)=>{
+            const token=res.data.token
+            dispatch({type:LOGOUT_USER})
+            localStorage.setItem('token', token); 
+        })
     }
 }
 

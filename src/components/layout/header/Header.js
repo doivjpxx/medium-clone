@@ -1,12 +1,31 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
+import { Link ,Redirect} from "react-router-dom";
 import medium from "../../../assets/img/medium-1.png";
 
 export default class Header extends Component {
+  constructor(props){
+    super(props);
+    this.state={
+      refresh:false
+    }
+    this.refresh=this.refresh.bind(this)
+   this.avatar=this.avatar.bind(this)
+  }
+
   componentWillMount(){
     this.props.detailUser()
     console.log(this.props.user)
   }
+  refresh(){
+    this.setState({refresh:!this.state.refresh})
+  }
+
+  avatar(){
+  if (this.props.user.avatar) return <li className="nav-item"><img className="author-thumb" src={`${this.props.user.avatar}`}/></li> 
+    else return  null             
+    {console.log(localStorage.token)}
+  }
+
   render() {
     return (
       <div>    
@@ -62,11 +81,18 @@ export default class Header extends Component {
                   </span>
                 </form>
 
-                <li className="nav-item">
-                {this.props.checkLogin?<img src={`${this.props.user.avatar}`}/>:<Link  className="nav-link"  to="/login">Login</Link>}               
-                </li>
-                {console.log(this.props.user)}
+                {this.avatar()}
+                          
+                {this.props.user.avatar?                         
+                              <li className="nav-item" onClick={()=> window.location.reload()}>
+                                  <Link className="nav-link" onClick={()=>this.props.logout()}>                                        
+                                      Logout 
+                                  </Link>
+                              </li>    :
+                              <li>< Link className="nav-link"  to="/login" >Login</Link></li>                   
+                            }
               </ul>
+              {console.log(this.state.refresh)}
               {/* End Search */}
             </div>
           </div>

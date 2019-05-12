@@ -18,4 +18,6 @@ export function detailUser(state={},action){
     return state
 }
 
+
+
     

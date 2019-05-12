@@ -1,6 +1,7 @@
 export const URL='http://localhost:4000/api/v1/';
 export const User = {
   USER_LOGIN: process.env.API_ENDPOINT + '/api/v1/users/login',
+  USER_LOGOUT: process.env.API_ENDPOINT + '/api/v1/users/logout',
   USER_REGISTER: process.env.API_ENDPOINT + '/api/v1/users/register',
   USER_DETAIL: process.env.API_ENDPOINT + '/api/v1/users/me'
 }

@@ -22,6 +22,7 @@ export default class Login extends Component {
   SignIn(evt){
     evt.preventDefault()
     this.props.SignIn(this.state.emailLogin,this.state.passwordLogin)
+    
   }
   
   SignUp(evt){
