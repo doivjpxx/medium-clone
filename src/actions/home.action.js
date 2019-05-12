@@ -1,5 +1,5 @@
 import Axios from "axios";
-import { LIST_ARTICLE, ADD_ARTICLE,DETAIL_ARTICLE } from "../constants/action.type";
+import { LIST_ARTICLE, ADD_ARTICLE,DETAIL_ARTICLE, TOP_ARTICLE } from "../constants/action.type";
 import {Article} from '../constants/api.constants'
 // export function getList (){
 //     return {type:'GET_LIST'}
@@ -37,7 +37,7 @@ export function addArticle(text, title,description,feature_img ){
             let articles = res.data.data
             dispatch({type:ADD_ARTICLE,articles})
             if(res.status===1) console.log(res.message)
-            console.log(articles)
+           // console.log(articles)
         })
         .catch((err)=>{
             console.log(err)
@@ -51,7 +51,20 @@ export function detailArticle(id){
         .then((res)=>{
             let article=res.data.data
             dispatch({type:DETAIL_ARTICLE,article})
-            //console.log(res.data.data)
+        })
+        .catch((err)=>{
+            console.log(err)
+        })
+    }
+}
+
+export function topArticle(){
+    return function(dispatch){
+        Axios.get(Article.ARTICLE_TOP)
+        .then((res)=>{
+            let articles = res.data.data
+            dispatch({type:TOP_ARTICLE,articles})
+            //console.log(articles)
         })
         .catch((err)=>{
             console.log(err)

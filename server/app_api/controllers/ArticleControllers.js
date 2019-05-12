@@ -65,7 +65,9 @@ module.exports.listArticles = async (req, res) => {
           feature_img: article.feature_img,
           claps: article.claps,
           description: article.description,
-          author: article.author.name
+          author: article.author.name,
+          avatar:article.author.avatar,
+          createdAt: article.createdAt
         };
       })
     );

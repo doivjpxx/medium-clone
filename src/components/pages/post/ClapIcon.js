@@ -65,12 +65,12 @@ export default class ClapIcon extends Component {
       })
       const countTotalAnimation = new mojs.Html({
         el: '#clap--count-total',
-        isShowStart: false,
-        isShowEnd: true,
-        opacity: {0:1},
-        delay: 3*(tlDuration)/2,
-        duration: tlDuration,
-        y: {0: -3}
+        // isShowStart: false,
+        // isShowEnd: true,
+        // opacity: {0:1},
+        // delay: 3*(tlDuration)/2,
+        // duration: tlDuration,
+        // y: {0: -3}
       })
       const scaleButton = new mojs.Html({
         el: '#clap',
@@ -97,13 +97,13 @@ export default class ClapIcon extends Component {
     _handleClick () {
       this.props.clap(this.props.id)
   this._animationTimeline.replay()
-  this.setState(function(prevState, nextState) {
-    return {
-      count: Math.min(prevState.count + 1, 50),
-      //countTotal: prevState.countTotal + 1,
-      isClicked: true
-    }
-      })
+  // this.setState(function(prevState, nextState) {
+  //   return {
+  //     count: Math.min(prevState.count + 1, 50),
+  //     //countTotal: prevState.countTotal + 1,
+  //     isClicked: true
+   // }
+    //  })
     }
     
     render() {

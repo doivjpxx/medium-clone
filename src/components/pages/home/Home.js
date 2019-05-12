@@ -2,13 +2,15 @@ import React, { Component } from 'react'
 import SiteTitle from './SiteTitle'
 import PostItemFeature from '../../../containers/pages/home/postFeature/PostItem';
 import PostItemAllPost from '../../../containers/pages/home/allPost/PostItem';
-import { Link } from "react-router-dom";
+import { Link,Redirect } from "react-router-dom";
 
 export default class Home extends Component {
   componentWillMount(){
     this.props.listArticles();
+    this.props.topArticle ();
   }
   render() {
+    console.log(this.props.toplist)
     return (
       <div className="container margtop3rem">
         <SiteTitle />
@@ -17,14 +19,14 @@ export default class Home extends Component {
         <section className="featured-posts">
           <div className="section-title">
             <h2>
-              <span>Featured</span>
+              <span>Top articles</span>{/**feature */}
             </h2>
           </div>
           <div className="card-columns listfeaturedtag">        
-              {this.props.list.map(item => ( 
+              {this.props.toplist.map(item => ( 
                 <div >
-                    <Link to={`/post/${item.id}`}>
-                        <PostItemFeature item={item}  key={item.id}/>  
+                    <Link to={`/post/${item._id}`}>
+                        <PostItemFeature item={item}  key={item._id}/>  
                     </Link>                       
                 </div>
                 ))}      

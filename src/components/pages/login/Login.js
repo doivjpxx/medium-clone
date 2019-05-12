@@ -44,7 +44,7 @@ export default class Login extends Component {
                   <h1 className="sitetitle">Adventure is the best way to learn</h1>
                   <p className="lead">
                   You’ll never be brave if you do not get hurt. You’ll never learn if you do not make mistakes. You’ll never be successful if you do not encounter failure. 
-                    <img style={{marginTop:50}} src={"https://redbackstudios.in/images/Android-Mobile-Application-Development-letsnurture.png"}/>
+                    <img style={{marginTop:50}} src={"https://www.cleveroad.com/images/article-previews/Most-popular-programming-languages-banner-1.png"}/>
                   </p>
                 </div>
                 </div>

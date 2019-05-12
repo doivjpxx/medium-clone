@@ -1,8 +1,10 @@
 import React, { Component } from 'react'
+import {Redirect} from 'react-router-dom'
 
 export default class Article extends Component {
     componentWillMount(){
-        this.props.detailArticle(this.props.id)    
+        this.props.detailArticle(this.props.id)
+        if(!this.props.user.avatar) {<Redirect to="/login"/>}    
     }
     render() {
         return (
@@ -12,7 +14,7 @@ export default class Article extends Component {
                     <div className="row post-top-meta">
                         <div className="col-md-2">
                             <img className="author-thumb" src={`${this.props.article.avatar}`} alt="author" />
-                            {console.log(this.props.acticle)}
+                            {/* {console.log(this.props.acticle)} */}
                         </div>
                         <div className="col-md-10">
                             <div className="link-dark" href="author.html">{this.props.article.author}</div><div href="###" className="btn follow">Follow</div>
@@ -23,13 +25,10 @@ export default class Article extends Component {
                     {/* End Top Menta */}
                     <h1 className="posttitle">{this.props.article.title}</h1>
                 </div>
-                {/* Begin Featured Image */}
-                {/* <img className="featured-image img-fluid" /> */}
-                {/* End Featured Image */}
                 {/* Begin Post Content */}
                 <div className="article-post">
                 <p dangerouslySetInnerHTML={{ __html:this.props.article.text }}/>
-                    {console.log(this.props.article)}                 
+                    {/* {console.log(this.props.article)}                  */}
                 </div>
                 {/* End Post Content */}
                 {/* Begin Tags */}

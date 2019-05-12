@@ -6,6 +6,7 @@ export const LOGOUT_USER='LOGOUT_USER'
 export const LIST_ARTICLE = 'LIST_ARTICLE'
 export const ADD_ARTICLE = 'ADD_ARTICLE'
 export const DETAIL_ARTICLE = 'DETAIL_ARTICLE'
+export const TOP_ARTICLE = "TOP_ARTICLE"
 
 export const CLAP_ARTICLE = 'CLAP_ARTICLE'
 

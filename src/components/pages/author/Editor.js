@@ -27,31 +27,24 @@ export default class Editor extends Component {
   render () {
     const { title,feature_img,description}= this.state
     return (
-      <div style={{width:`80%`, margin: '0 auto'}}>
-        <h3>NEW ARTICLE</h3>
-        <form>
-          <div className="form-group">
-              <label htmlFor="exampleInputPassword1">Title</label>
-              <input type="text" className="form-control" placeholder="Title's article" 
-                     value={title}
-                     onChange={evt=>{this.setState({title: evt.target.value})}}/>
-          </div>
-          <div className="form-group">
-              <label htmlFor="exampleInputPassword1">Description</label>
-              <input type="text" className="form-control" id="exampleInputPassword1" placeholder="Description" 
-                     value={description}
-                     onChange={evt=>{this.setState({description: evt.target.value})}}/>
-          </div>
-          <div className="form-group">
-              <label htmlFor="exampleInputPassword1">Background</label>
-              <input type="text" className="form-control" id="exampleInputPassword1" placeholder="URL's background" 
-                       value={feature_img}
-                       onChange={evt=>{this.setState({feature_img: evt.target.value})}}/>
-          </div>
-       
-          <div className="form-group">
-          <label htmlFor="exampleInputPassword1">Content</label>
-        <ReactQuill 
+      <form className="form-style-9">
+      <ul>
+        <li>
+          <input type="text" name="field1" className="field-style field-split align-left" placeholder="Title" 
+            value={title}
+            onChange={evt=>{this.setState({title: evt.target.value})}}/>
+          <input type="email" name="field2" className="field-style field-split align-right" placeholder="URL image" 
+            value={feature_img}
+            onChange={evt=>{this.setState({feature_img: evt.target.value})}}/>
+        </li>
+        <li>
+          <input type="text" name="field3" className="field-style field-full align-none" placeholder="Description" 
+            value={description}
+            onChange={evt=>{this.setState({description: evt.target.value})}}/>
+        </li>
+        <li>
+        <label htmlFor="exampleInputPassword1">Content</label>
+         <ReactQuill 
           theme={this.state.theme}
           onChange={this.handleChange}
           value={this.state.text}
@@ -59,20 +52,11 @@ export default class Editor extends Component {
           formats={Editor.formats}
           bounds={'.app'}
           placeholder={this.props.placeholder}
-         />
-        {/* <div className="themeSwitcher">
-          <label>Theme </label>
-          <select onChange={(e) => 
-              this.handleThemeChange(e.target.value)}>
-            <option value="snow">Snow</option>
-            <option value="bubble">Bubble</option>
-            <option value="core">Core</option>
-          </select>
-        </div> */}
-        </div>
-         <button type="submit" className="btn btn-primary" onClick={(evt)=>this.onSubmit(evt)}>Submit</button>
-        </form>
-       </div>
+         />       
+        </li>
+      </ul>
+      <button type="submit" className="btn btn-primary" onClick={(evt)=>this.onSubmit(evt)}>Submit</button>
+    </form>
      )
   }
 }
