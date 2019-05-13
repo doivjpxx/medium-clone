@@ -9,7 +9,7 @@ export function  LoginReducer(state={email:'', password:'', name:''},action ){
 
 export function checkLogin(state=false,action){
     if(action.type===SIGN_IN) return checkLogin       
-    console.log(state)
+ //   console.log(state)
     return state
 }
 

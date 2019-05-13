@@ -107,7 +107,7 @@ export default class ClapIcon extends Component {
     }
     
     render() {
-      console.log(this.state)
+   //   console.log(this.state)
       const {count, isClicked} = this.state;
       const {clapCount}=this.props
       return getAppContent(count, clapCount, isClicked, this._handleClick)

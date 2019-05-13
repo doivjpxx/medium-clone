@@ -12,7 +12,7 @@ export function add_article(state=[], action){
 
 export function topArticle(state=[],action){
     if (action.type===TOP_ARTICLE) return action.articles
-    console.log(state)
+ //   console.log(state)
     return state
 }
 

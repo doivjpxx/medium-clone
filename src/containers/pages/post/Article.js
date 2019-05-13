@@ -1,8 +1,13 @@
 import {connect} from 'react-redux'
 import Article from '../../../components/pages/post/Article'
-import * as action from '../../../actions/home.action'
+import {follow,unfollow}  from '../../../actions/post.action'
+import {detailArticle}  from '../../../actions/home.action'
+const mapDispatchToProps={
+    detailArticle,follow, unfollow
+}
 const mapStateToProps= state =>({
     article: state. article,
-    user:state.user
+    user:state.user,
+    follow:state.follow,
 })
-export default connect(mapStateToProps,action)(Article)
+export default connect(mapStateToProps,mapDispatchToProps)(Article)

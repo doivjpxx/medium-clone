@@ -6,7 +6,7 @@ export default class RelatedPost extends Component {
         this.props.listArticles();
       }
     render() {
-        console.log(this.props.list)
+      //  console.log(this.props.list)
         return (
             <div className="graybg">
                 <div className="container">

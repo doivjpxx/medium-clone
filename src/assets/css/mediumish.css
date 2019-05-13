@@ -368,6 +368,16 @@ ul.tags li a:hover {
 	font-size:0.85rem;
 	display:inline-block;
 }
+.btn.unfollow {
+	border-color:#acb0ae;
+	color:#acb0ae;
+	padding:3px 10px;
+	text-align:center;
+	border-radius:999em;
+	font-size:0.85rem;
+	display:inline-block;
+}
+
 .btn.subscribe {
 	background-color:#1C9963;
 	border-color:#1C9963;

@@ -3,7 +3,9 @@ export const User = {
   USER_LOGIN: process.env.API_ENDPOINT + '/api/v1/users/login',
   USER_LOGOUT: process.env.API_ENDPOINT + '/api/v1/users/logout',
   USER_REGISTER: process.env.API_ENDPOINT + '/api/v1/users/register',
-  USER_DETAIL: process.env.API_ENDPOINT + '/api/v1/users/me'
+  USER_DETAIL: process.env.API_ENDPOINT + '/api/v1/users/me',
+  USER_FOLLOW: process.env.API_ENDPOINT + '/api/v1/users/follow/{id}',
+  UNFOLLOW_USER: process.env.API_ENDPOINT+ '/api/v1/users/unfollow/{id}'
 }
 
 export const Article = {
