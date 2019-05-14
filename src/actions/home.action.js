@@ -1,6 +1,7 @@
 import Axios from "axios";
 import { LIST_ARTICLE, ADD_ARTICLE,DETAIL_ARTICLE, TOP_ARTICLE } from "../constants/action.type";
 import {Article} from '../constants/api.constants'
+import { async } from "q";
 // export function getList (){
 //     return {type:'GET_LIST'}
 // }
@@ -45,8 +46,8 @@ export function addArticle(text, title,description,feature_img ){
     }
 }
 //detail article
-export function detailArticle(id){
-    return function(dispatch){
+export  function detailArticle(id){
+    return  function(dispatch){
         Axios.get(Article.ARTICLE_EDIT.replace('{id}', id))
         .then((res)=>{
             let article=res.data.data

@@ -10,7 +10,7 @@ export default class Home extends Component {
     this.props.topArticle ();
   }
   render() {
-    console.log(this.props.toplist)
+   // console.log(this.props.toplist)
     return (
       <div className="container margtop3rem">
         <SiteTitle />

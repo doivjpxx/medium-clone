@@ -1,8 +1,12 @@
 import ClapIcon from '../../../components/pages/post/ClapIcon'
 import {connect} from 'react-redux'
-import * as action from '../../../actions/post.action'
-
+import {clap} from '../../../actions/post.action'
+import {detailArticle} from '../../../actions/home.action'
+const mapDispatchToProps={
+    detailArticle,clap
+}
 const mapStateToProps = state =>({
-    clapCount: state.clap
+    clapCount: state.clap,
+    article : state.article
 })
-export default connect(mapStateToProps,action)(ClapIcon)
+export default connect(mapStateToProps,mapDispatchToProps)(ClapIcon)
