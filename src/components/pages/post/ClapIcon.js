@@ -7,13 +7,14 @@ export default class ClapIcon extends Component {
       super(props)
       this.state = { 
         count: 0,
-        clapsTotal: this.props.clapCount,
+        clapsTotal: 0,
         isClicked: false,
       }
       this._handleClick = this._handleClick.bind(this);
     }
    componentWillMount(){
-     if(this.props.clapCount===0)  this.props.clap(this.props.id)
+
+      this.props.clap(this.props.id)
    }
     componentDidMount() {
      
@@ -95,8 +96,8 @@ export default class ClapIcon extends Component {
       
     _handleClick () {    
       this._animationTimeline.replay()
-      setInterval(this.props.clap(this.props.id))
-      setInterval(this.setState({isClicked:true,clapsTotal:this.props.clapCount}),2000)      
+      this.props.clap(this.props.id)
+      this.setState({isClicked:true,clapsTotal:this.props.clapCount})      
      }  
     
     render() {
