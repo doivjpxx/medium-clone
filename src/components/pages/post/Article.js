@@ -1,11 +1,13 @@
 import React, { Component } from 'react'
-import {Redirect} from 'react-router-dom'
+//import {Redirect} from 'react-router-dom'
+import loading from '../../../assets/img/Spinner.svg'
 
 export default class Article extends Component {
     constructor(props){
         super(props);
         this.state={
-            isfollow : setInterval( this.props.user.following.indexOf(this.props.article.author_id)>-1?true:false,10000)
+            isfollow : false
+            //setInterval( this.props.user.following.indexOf(this.props.article.author_id)>-1?true:false,20000)
         }   
         this.checkFollow=this.checkFollow.bind(this)
         this.follow=this.follow.bind(this)
@@ -33,8 +35,10 @@ export default class Article extends Component {
         const {article} = this.props
         const {isfollow} = this.state 
        // console.log(this.props.user.following.indexOf(this.props.article.author_id))        
-        return (        
+        return (
             <div className="col-md-8 col-md-offset-2 col-xs-12">
+                {this.props.loadingDetailArticle?
+                <div >
                 <div className="mainheading">
                     {/* Begin Top Meta */}
                     <div className="row post-top-meta">
@@ -76,7 +80,11 @@ export default class Article extends Component {
                 </div>
                 {/* End Tags */}
             </div>
-
+            :
+            <div className="container"><img style={{display:'flex',margin:'0 auto',alignItems:'center',justifyContent:'center'}} src={loading}/></div>}
+                
+            </div>        
+            
         )
     }
 }

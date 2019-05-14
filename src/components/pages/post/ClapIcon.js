@@ -101,8 +101,8 @@ export default class ClapIcon extends Component {
      }  
     
     render() {
-      console.log(this.state)
-      console.log(this.props.article)
+     // console.log(this.state)
+     // console.log(this.props.article)
       const {count, isClicked} = this.state;
       const {claps}=this.props.article;
       const {clapsTotal}=this.state

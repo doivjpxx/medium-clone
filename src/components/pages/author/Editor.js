@@ -1,11 +1,12 @@
 import React,{Component} from 'react';
 import './Editor.css'
-import ReactQuill from 'react-quill'; // ES6
+import ReactQuill from 'react-quill';// ES6
+import {Redirect} from 'react-router-dom' 
 
 export default class Editor extends Component {
   constructor (props) {
     super(props)
-    this.state = { text: '', theme: 'snow', description:'', feature_img:'', title:''}
+    this.state = { text: '', theme: 'snow', description:'', feature_img:'', title:'',redirect:false}
     this.handleChange = this.handleChange.bind(this)
   }
   
@@ -22,10 +23,12 @@ export default class Editor extends Component {
     evt.preventDefault()
     const {title, feature_img,description,text}= this.state
     this.props.addArticle(text, title,description,feature_img)
+    this.setState({redirect:true})
   }
   
   render () {
     const { title,feature_img,description}= this.state
+    if(this.state.redirect) return <Redirect to="/"/>
     return (
       <form className="form-style-9">
       <ul>

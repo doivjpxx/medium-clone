@@ -8,6 +8,7 @@ const mapDispatchToProps={
 const mapStateToProps= state =>({
     article: state.article,
     user:state.user,
+    loadingDetailArticle:state.loadingDetailArticle
     
 })
 export default connect(mapStateToProps,mapDispatchToProps)(Article)

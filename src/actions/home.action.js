@@ -10,9 +10,10 @@ export function listArticles(page){
     return function(dispatch){
         Axios.get(Article.ARTICLE_LIST.replace('{page}',page))
         .then((res)=>{
+            let status = res.data.status
             let articles= res.data.data.articles
-            dispatch({type:LIST_ARTICLE, articles})
-           // console.log(articles)
+            dispatch({type:LIST_ARTICLE, articles,status})
+ //           console.log(res.data.status)
         })
         .catch((err)=>{
             console.log(err)
@@ -50,8 +51,10 @@ export  function detailArticle(id){
     return  function(dispatch){
         Axios.get(Article.ARTICLE_EDIT.replace('{id}', id))
         .then((res)=>{
+            let status=res.data.status
             let article=res.data.data
-            dispatch({type:DETAIL_ARTICLE,article})
+            dispatch({type:DETAIL_ARTICLE,article,status})
+            console.log(status)
         })
         .catch((err)=>{
             console.log(err)

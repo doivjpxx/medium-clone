@@ -1,6 +1,6 @@
 import { createStore , combineReducers , applyMiddleware  } from 'redux'
 import thunk from 'redux-thunk'
-import { homeReducer,topArticle } from './home.reducer';
+import { homeReducer,topArticle, loadingHome,loadingDetailArticle } from './home.reducer';
 import { LoginReducer, checkLogin, detailUser} from './Login.Reducer';
 import { clapReducer,detailArticleReducer} from './post.reducer';
 
@@ -12,5 +12,7 @@ const reducer = combineReducers({
    checkLogin: checkLogin,
    user : detailUser,
    toplist: topArticle,
+   loadingHome: loadingHome,
+   loadingDetailArticle: loadingDetailArticle
 })
 export const store = createStore(reducer,applyMiddleware(thunk));
