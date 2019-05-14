@@ -6,18 +6,15 @@ export default class Article extends Component {
         super(props);
         this.state={
             isfollow : setInterval( this.props.user.following.indexOf(this.props.article.author_id)>-1?true:false,10000)
-        }
-       
+        }   
         this.checkFollow=this.checkFollow.bind(this)
         this.follow=this.follow.bind(this)
         this.unfollow=this.unfollow.bind(this)
     }
     componentWillMount(){
         this.props.detailArticle(this.props.id)
-       // setInterval( this.checkFollow(),5000)
     }
   
-    
      checkFollow(){
         const following =  this.props.user.following
         const id=  this.props.article.author_id

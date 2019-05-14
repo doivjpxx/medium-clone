@@ -6,9 +6,9 @@ import { async } from "q";
 //     return {type:'GET_LIST'}
 // }
 //load all articles in component home (All articles)
-export function listArticles(){
+export function listArticles(page){
     return function(dispatch){
-        Axios.get(Article.ARTICLE_LIST)
+        Axios.get(Article.ARTICLE_LIST.replace('{page}',page))
         .then((res)=>{
             let articles= res.data.data.articles
             dispatch({type:LIST_ARTICLE, articles})

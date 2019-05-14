@@ -13,7 +13,7 @@ export default class ClapIcon extends Component {
       this._handleClick = this._handleClick.bind(this);
     }
    componentWillMount(){
-
+     this.setState({clapsTotal:0})
       this.props.clap(this.props.id)
    }
     componentDidMount() {
