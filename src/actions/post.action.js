@@ -1,4 +1,4 @@
-import {CLAP_ARTICLE,UNFOLLOW_USER,FOLLOW_USER} from '../constants/action.type'
+import {CLAP_ARTICLE,UNFOLLOW_USER,FOLLOW_USER,CHECK_FOLLOW} from '../constants/action.type'
 import {Article,User} from '../constants/api.constants'
 import Axios from 'axios';
 export function clap(id){
@@ -17,33 +17,51 @@ export function clap(id){
     }
 }
 
-export function follow(id){
+export function follow(author_id){
     return function(dispatch){
         let token = localStorage.token
-        Axios.post(User.USER_FOLLOW.replace('{id}',id),{
+        const id=author_id
+        Axios.post(User.USER_FOLLOW.replace('{id}',id),id,{
             headers: {
-                'access_token': `${token}`,          
+                'access_token': `${token}`,
             }
         })
-        .then((res)=>{
+        .then((res) => {
+            console.log(res)
             dispatch({type:FOLLOW_USER})
-            console.log(res.status.message)
+            if(res.data.status===1){
+                alert("follow success!")
+            }          
         })
-        .catch((err)=>console.log(err))
+        // .catch((err)=>{
+        //    console.log(err)
+        // })
     }
 }
 
-export function unfollow(id){
+export function unfollow(author_id){
     return function(dispatch){
+        const id=author_id
         let token = localStorage.token
-        Axios.post(User.USER_UNFOLLOW.replace('{id}',id),{
+        Axios.post(User.USER_UNFOLLOW.replace('{id}',id),id,{
             headers: {
                 'access_token': `${token}`,          
             }
         })
         .then((res)=>{
+            console.log(res)
             dispatch({type:UNFOLLOW_USER})
+            if(res.data.status===1){
+                alert("unfollow success!")
+            }
         })
-        .catch((err)=>console.log(err))
+        .catch((err)=>alert(err.message))
     }
 }
+
+export function checkFollow(author,follows){
+    return function(dispatch){    
+            dispatch({type:CHECK_FOLLOW,author,follows})          
+            }
+   }
+     

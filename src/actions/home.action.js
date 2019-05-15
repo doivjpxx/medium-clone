@@ -1,17 +1,19 @@
 import Axios from "axios";
 import { LIST_ARTICLE, ADD_ARTICLE,DETAIL_ARTICLE, TOP_ARTICLE } from "../constants/action.type";
 import {Article} from '../constants/api.constants'
+import { async } from "q";
 // export function getList (){
 //     return {type:'GET_LIST'}
 // }
 //load all articles in component home (All articles)
-export function listArticles(){
+export function listArticles(page){
     return function(dispatch){
-        Axios.get(Article.ARTICLE_LIST)
+        Axios.get(Article.ARTICLE_LIST.replace('{page}',page))
         .then((res)=>{
+            let status = res.data.status
             let articles= res.data.data.articles
-            dispatch({type:LIST_ARTICLE, articles})
-           // console.log(articles)
+            dispatch({type:LIST_ARTICLE, articles,status})
+ //           console.log(res.data.status)
         })
         .catch((err)=>{
             console.log(err)
@@ -45,12 +47,14 @@ export function addArticle(text, title,description,feature_img ){
     }
 }
 //detail article
-export function detailArticle(id){
-    return function(dispatch){
+export  function detailArticle(id){
+    return  function(dispatch){
         Axios.get(Article.ARTICLE_EDIT.replace('{id}', id))
         .then((res)=>{
+            let status=res.data.status
             let article=res.data.data
-            dispatch({type:DETAIL_ARTICLE,article})
+            dispatch({type:DETAIL_ARTICLE,article,status})
+            console.log(status)
         })
         .catch((err)=>{
             console.log(err)

@@ -11,6 +11,7 @@ export const DETAIL_ARTICLE = 'DETAIL_ARTICLE'
 export const TOP_ARTICLE = "TOP_ARTICLE"
 
 export const CLAP_ARTICLE = 'CLAP_ARTICLE'
+export const CHECK_FOLLOW="CHECK_FOLLOW"
 
 
 

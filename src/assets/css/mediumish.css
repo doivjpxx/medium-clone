@@ -360,22 +360,30 @@ ul.tags li a:hover {
 	margin-bottom:1.2rem;
 }
 .btn.follow {
-	border-color:#02B875;
-	color:#1C9963;
-	padding:3px 10px;
-	text-align:center;
-	border-radius:999em;
-	font-size:0.85rem;
-	display:inline-block;
+	color: #ffffff;
+    padding: 3px 10px;
+    text-align: center;
+    border-radius: 999em;
+    font-size: 0.85rem;
+    display: inline-block;
+	background-color: #0a9e54;
+	margin-top:20px;
 }
 .btn.unfollow {
-	border-color:#acb0ae;
-	color:#acb0ae;
-	padding:3px 10px;
-	text-align:center;
-	border-radius:999em;
-	font-size:0.85rem;
-	display:inline-block;
+	color: #ffffff;
+    padding: 3px 10px;
+    text-align: center;
+    border-radius: 999em;
+    font-size: 0.85rem;
+    display: inline-block;
+    background-color: #0a9e54;
+
+}
+
+.btn:hover{
+	cursor: pointer;
+	border: 1px solid rgba(39, 174, 96, 1);
+  	transition: border-color 0.3s ease-in;
 }
 
 .btn.subscribe {

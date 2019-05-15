@@ -106,11 +106,11 @@ module.exports.detailArticle = async (req, res) => {
         text: article.text,
         description: article.description,
         claps: article.claps,
-        author: { 
-          name: article.author.name,
-          avatar:article.author.avatar,
-          _id: article.author._id
-        }
+
+        author_name: article.author.name,
+        author_avatar:article.author.avatar,
+        author_id: article.author._id
+        
       }
     });
   } catch (e) {

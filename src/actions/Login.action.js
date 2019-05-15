@@ -10,7 +10,7 @@ export function SignIn(email,password){
             const authToken = res.data.data.token;
             const checkLogin = res.data.auth
             dispatch({type:SIGN_IN,checkLogin})
-            console.log(res.data.data.auth)
+ //           console.log(res.data.data.auth)
             if (res.data.status===1) {
                 alert("Đăng nhập thành công!!")          
                 localStorage.setItem('token', authToken);   
@@ -62,7 +62,7 @@ export function detailUser(){
         .then(res=>{
             const user = res.data.data
             dispatch({type:DETAIL_USER,user})
-            if(res.data.status===1) console.log("get user's infor success!")
+         //   if(res.data.status===1) console.log("get user's infor success!")
         })
         .catch((err)=>{
             console.log(err)

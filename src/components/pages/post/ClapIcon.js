@@ -5,20 +5,21 @@ import mojs from "mo-js";
 export default class ClapIcon extends Component {
     constructor(props) {
       super(props)
-      this.state = {
+      this.state = { 
         count: 0,
-        // countTotal: this._generateRandomNumber(500,10000),
-        //countTotal:this.props.clapCount,
-        //clap:this.props.clap,
+        clapsTotal: 0,
         isClicked: false,
       }
       this._handleClick = this._handleClick.bind(this);
     }
-
- 
-  
+   componentWillMount(){
+     this.setState({clapsTotal:0})
+      this.props.clap(this.props.id)
+   }
     componentDidMount() {
+     
       const tlDuration = 300
+      
       const triangleBurst = new mojs.Burst({
         parent: '#clap',
         radius: {50:95},
@@ -92,29 +93,24 @@ export default class ClapIcon extends Component {
     _generateRandomNumber (min, max) {
       return Math.floor(Math.random()*(max-min+1)+min)
     } 
-  
-    
-    _handleClick () {
+      
+    _handleClick () {    
+      this._animationTimeline.replay()
       this.props.clap(this.props.id)
-  this._animationTimeline.replay()
-  // this.setState(function(prevState, nextState) {
-  //   return {
-  //     count: Math.min(prevState.count + 1, 50),
-  //     //countTotal: prevState.countTotal + 1,
-  //     isClicked: true
-   // }
-    //  })
-    }
+      this.setState({isClicked:true,clapsTotal:this.props.clapCount})      
+     }  
     
     render() {
-   //   console.log(this.state)
+     // console.log(this.state)
+     // console.log(this.props.article)
       const {count, isClicked} = this.state;
-      const {clapCount}=this.props
-      return getAppContent(count, clapCount, isClicked, this._handleClick)
+      const {claps}=this.props.article;
+      const {clapsTotal}=this.state
+      return getAppContent(count, claps, isClicked, this._handleClick,clapsTotal)
     }
   }
   
-  function getAppContent(count, clapCount, isClicked, handleClick) {
+  function getAppContent(count, claps, isClicked, handleClick,clapsTotal) {
     return <div><button id="clap" className="clap" onClick={handleClick}>
     <span>
       {/*<!--  SVG Created by Luis Durazo from the Noun Project  -->*/}
@@ -125,9 +121,9 @@ export default class ClapIcon extends Component {
     </span>
     <span
       id="clap--count" className="clap--count">+{1}</span>
-      
+     
     <span
-      id="clap--count-total" className="clap--count-total">{clapCount}</span>
+      id="clap--count-total" className="clap--count-total">{isClicked?clapsTotal:claps}</span>
   </button>
     </div>
   }
