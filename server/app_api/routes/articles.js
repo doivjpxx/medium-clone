@@ -6,6 +6,7 @@ const { verifyToken } = require("../middlewares/VerifyToken");
 const ArticleController = require("../controllers/ArticleControllers");
 
 router.get("/list", ArticleController.listArticles);
+router.get("/author", verifyToken, ArticleController.getArticlesByUser);
 router.post("/add", verifyToken, ArticleController.addArticle);
 router.get("/clap/:id", verifyToken, ArticleController.clap);
 router.get("/:id", ArticleController.detailArticle);

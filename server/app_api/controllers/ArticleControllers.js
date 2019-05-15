@@ -47,7 +47,7 @@ module.exports.listArticles = async (req, res) => {
     var query = {};
 
     let articles = await Article.find(query)
-      .populate('author')
+      .populate("author")
       .sort({
         createAt: -1
       })
@@ -66,7 +66,7 @@ module.exports.listArticles = async (req, res) => {
           claps: article.claps,
           description: article.description,
           author: article.author.name,
-          avatar:article.author.avatar,
+          avatar: article.author.avatar,
           createdAt: article.createdAt
         };
       })
@@ -92,7 +92,6 @@ module.exports.listArticles = async (req, res) => {
 
 module.exports.detailArticle = async (req, res) => {
   let id = req.params.id;
- 
 
   try {
     const article = await Article.findOne({
@@ -108,9 +107,8 @@ module.exports.detailArticle = async (req, res) => {
         claps: article.claps,
 
         author_name: article.author.name,
-        author_avatar:article.author.avatar,
+        author_avatar: article.author.avatar,
         author_id: article.author._id
-        
       }
     });
   } catch (e) {
@@ -186,20 +184,20 @@ module.exports.editArticle = async (req, res) => {
       _id: id
     });
 
-    if(!article){
+    if (!article) {
       return res.status(400).json({
         status: 0,
         data: {},
         message: "Không tìm thấy bài viết"
-      })
+      });
     }
 
-    if(article.author._id !== userId){
+    if (article.author._id !== userId) {
       return res.status(400).json({
         status: 0,
         data: {},
         message: "Bạn không có quyền chỉnh sửa ở đây"
-      })
+      });
     }
 
     article.text = text;
@@ -215,17 +213,15 @@ module.exports.editArticle = async (req, res) => {
         article
       },
       message: "Bài viết đã chỉnh sửa thành công!"
-    })
-  }
-
-  catch(e){
+    });
+  } catch (e) {
     return res.status(500).json({
       status: 0,
       data: {},
       message: "Lỗi server : " + e.message
-    })
+    });
   }
-}
+};
 
 module.exports.deleteArticle = async (req, res) => {
   const userId = req.id;
@@ -236,19 +232,19 @@ module.exports.deleteArticle = async (req, res) => {
       _id: id
     });
 
-    if(article.author._id.toString() !== userId.toString()) {
+    if (article.author._id.toString() !== userId.toString()) {
       console.log(userId);
       console.log(article.author);
       return res.status(400).json({
         status: 0,
         data: {},
         message: "Bạn không có đặc quyền để xóa"
-      })
+      });
     }
 
     article = await Article.findOneAndDelete({
       _id: id
-    })
+    });
 
     return res.status(200).json({
       status: 1,
@@ -256,14 +252,50 @@ module.exports.deleteArticle = async (req, res) => {
         article
       },
       message: "Bài viết đã xóa thành công!"
-    })
-  }
-
-  catch(e){
+    });
+  } catch (e) {
     return res.status(500).json({
       status: 0,
       data: {},
       message: "Lỗi server : " + e.message
-    })
+    });
   }
-}
+};
+
+module.exports.getArticlesByUser = async (req, res) => {
+  const userId = req.id;
+
+  try {
+    const articles = await Article.find({author: userId})
+    let items = await Promise.all(
+      articles.map(async item => {
+        return {
+          _id: item._id,
+          title: item.title,
+          claps: item.claps,
+          feature_img: item.feature_img
+        };
+      })
+    );
+
+    if (!articles) {
+      return res.status(404).json({
+        status: 0,
+        data: {},
+        message: "Không tìm thấy bài viết"
+      });
+    }
+
+    return res.status(200).json({
+      status: 1,
+      data: { items },
+      message: "Thành công"
+    });
+  } catch (e) {
+    return res.status(500).json({
+      status: 0,
+      data: {},
+      message: "Lỗi server : " + e.message
+    });
+  }
+};
