@@ -58,10 +58,10 @@ export default class Home extends Component {
         <section className="recent-posts">
           <div className="section-title">
             <h2>
-              <span>All Stories</span>
+              <span>All articles</span>
             </h2>
             <p className="lead">
-              <img style={{marginTop:20,marginBottom:50}} src={"http://www.gpsypro.com/wp-content/uploads/2017/02/reactbanner.png"}/>
+              <img style={{marginTop:20,marginBottom:50}} src={"https://anothercoder.blog/wp-content/uploads/2018/04/welcomebanner4.jpg"}/>
               You’ll never be brave if you do not get hurt. You’ll never learn if you do not make mistakes. You’ll never be successful if you do not encounter failure. 
             </p>
           </div>

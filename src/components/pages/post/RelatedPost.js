@@ -2,9 +2,6 @@ import React, { Component } from 'react'
 import {Link} from 'react-router-dom'
 
 export default class RelatedPost extends Component {
-    componentWillMount(){
-        this.props.listArticles();
-      }
     render() {
       //  console.log(this.props.list)
         return (
@@ -12,7 +9,7 @@ export default class RelatedPost extends Component {
                 <div className="container">
                     <div className="row listrecent listrelated">
                         {/* begin post */}  
-                        {this.props.list.map((item)=>(
+                        {this.props.toplist.map((item)=>(
                         <div className="col-md-4" key={item.id}>
                         <Link to={`/${item.id}`}>
                             <div className="card">                        

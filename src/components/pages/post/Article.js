@@ -9,7 +9,7 @@ export default class Article extends Component {
             isfollow : false
             //setInterval( this.props.user.following.indexOf(this.props.article.author_id)>-1?true:false,20000)
         }   
-        this.checkFollow=this.checkFollow.bind(this)
+     //   this.checkFollow=this.checkFollow.bind(this)
         this.follow=this.follow.bind(this)
         this.unfollow=this.unfollow.bind(this)
     }
@@ -17,12 +17,12 @@ export default class Article extends Component {
         this.props.detailArticle(this.props.id)
     }
   
-     checkFollow(){
-        const following =  this.props.user.following
-        const id=  this.props.article.author_id
-            if(following.indexOf(id)>=0) this.setState({isfollow:true})
-            else return this.setState({isfollow:false}) 
-    }
+    //  checkFollow(){
+    //     const following =  this.props.user.following
+    //     const id=  this.props.article.author_id
+    //         if(following.indexOf(id)>=0) this.setState({isfollow:true})
+    //         else return this.setState({isfollow:false}) 
+    // }
     follow(){
         this.props.follow(this.props.article.author_id)
         this.setState({isfollow:true})
