@@ -29,7 +29,7 @@ export default class Home extends Component {
   }
   
   render() {
-    //console.log(this.state.loading)
+    console.log(this.props.toplist)
     return (
       <div>
       {this.props.loadingHome==1?<div className="container margtop3rem">

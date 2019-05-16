@@ -1,17 +1,18 @@
-import {CLAP_ARTICLE,UNFOLLOW_USER,FOLLOW_USER,CHECK_FOLLOW} from '../constants/action.type'
+import {CLAP_ARTICLE,UNFOLLOW_USER,FOLLOW_USER,CHECK_FOLLOW,DELETE_ARTICLE} from '../constants/action.type'
 import {Article,User} from '../constants/api.constants'
 import Axios from 'axios';
 export function clap(id){
     return function(dispatch){
-        let token = localStorage.token
+        let token = localStorage.token;
         Axios.get(Article.ARTICLE_CLAP.replace('{id}',id),{
             headers: {
                 'access_token': `${token}`,          
             }
         })
         .then((res) => {
-            const clap = res.data.data.claps
-            dispatch({type:CLAP_ARTICLE,clap})        
+            const clap = res.data.data.claps;
+            dispatch({type:CLAP_ARTICLE,clap});
+            console.log(clap)        
         })
         .catch((err)=>console.log(err))
     }
@@ -27,8 +28,8 @@ export function follow(author_id){
             }
         })
         .then((res) => {
-            console.log(res)
-            dispatch({type:FOLLOW_USER})
+            console.log(res);
+            dispatch({type:FOLLOW_USER});
             if(res.data.status===1){
                 alert("follow success!")
             }          
@@ -41,8 +42,8 @@ export function follow(author_id){
 
 export function unfollow(author_id){
     return function(dispatch){
-        const id=author_id
-        let token = localStorage.token
+        const id=author_id;
+        let token = localStorage.token;
         Axios.post(User.USER_UNFOLLOW.replace('{id}',id),id,{
             headers: {
                 'access_token': `${token}`,          
@@ -50,7 +51,7 @@ export function unfollow(author_id){
         })
         .then((res)=>{
             console.log(res)
-            dispatch({type:UNFOLLOW_USER})
+            dispatch({type:UNFOLLOW_USER});
             if(res.data.status===1){
                 alert("unfollow success!")
             }
@@ -59,9 +60,28 @@ export function unfollow(author_id){
     }
 }
 
-export function checkFollow(author,follows){
-    return function(dispatch){    
-            dispatch({type:CHECK_FOLLOW,author,follows})          
+// export function checkFollow(author,follows){
+//     return function(dispatch){
+//             dispatch({type:CHECK_FOLLOW,author,follows})
+//             }
+//    }
+ export function deleteArticle(id) {
+    return function (dispatch) {
+        let token = localStorage.token;
+        Axios.delete(Article.ARTICLE_DELETE.replace('{id}',id),{
+            headers: {
+                'access_token': `${token}`
             }
-   }
+        })
+            .then((res)=>{
+                dispatch({type:DELETE_ARTICLE});
+                if(res.data.status===0) alert(res.data.message);
+                if(res.data.status===1) alert(res.data.message);
+            })
+            .catch((err)=>console.log(err))
+    }
+ }
+
+
+
      

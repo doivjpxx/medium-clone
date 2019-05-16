@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 //import {Redirect} from 'react-router-dom'
 import loading from '../../../assets/img/Spinner.svg'
+import moment from "moment";
 
 export default class Article extends Component {
     constructor(props){
@@ -43,20 +44,20 @@ export default class Article extends Component {
                     {/* Begin Top Meta */}
                     <div className="row post-top-meta">
                         <div className="col-md-2">
-                            <img className="author-thumb" src={`${article.author_avatar}`} alt="author" />
+                            <img className="author-thumb" src={`${article.author.avatar}`} alt="author" />
                         </div>
                         <div className="col-md-10">
                             <div className="link-dark" href="author.html">
-                            {article.author_name}
+                            {article.author.name}
                             </div>
                             <div className="btn follow"
-                                onClick={isfollow?()=>this.unfollow(article.author_id):()=>this.follow(article.author_id)}
+                                onClick={isfollow?()=>this.unfollow(article.author.id):()=>this.follow(article.author.id)}
                                 //onClick={()=>this.props.unfollow(article.author_id)}
                                 >
                                 {isfollow?"Unfollow":"Follow"}
                             </div>
                             <span className="author-description">Founder of WowThemes.net and creator of <b>"Mediumish"</b> theme that you're currently previewing. Developing professional premium themes, templates, plugins, scripts since 2012.</span>
-                            <span className="post-date">22 July 2017</span><span className="dot" /><span className="post-read">6 min read</span>
+                            <span className="post-date">{moment(article.author.createdAt).format('llll')}</span>
                         </div>
                     </div>
                     {/* End Top Menta */}

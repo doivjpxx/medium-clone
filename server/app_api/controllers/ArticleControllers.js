@@ -65,8 +65,10 @@ module.exports.listArticles = async (req, res) => {
           feature_img: article.feature_img,
           claps: article.claps,
           description: article.description,
-          author: article.author.name,
-          avatar:article.author.avatar,
+          author: { 
+                    name:article.author.name,
+                    avatar:article.author.avatar
+                  },
           createdAt: article.createdAt
         };
       })
@@ -92,8 +94,6 @@ module.exports.listArticles = async (req, res) => {
 
 module.exports.detailArticle = async (req, res) => {
   let id = req.params.id;
- 
-
   try {
     const article = await Article.findOne({
       _id: id
@@ -106,11 +106,12 @@ module.exports.detailArticle = async (req, res) => {
         text: article.text,
         description: article.description,
         claps: article.claps,
-
-        author_name: article.author.name,
-        author_avatar:article.author.avatar,
-        author_id: article.author._id
-        
+        author:{
+          name: article.author.name,
+          avatar:article.author.avatar,
+          id: article.author._id,
+        },
+        createdAt: article.createdAt      
       }
     });
   } catch (e) {

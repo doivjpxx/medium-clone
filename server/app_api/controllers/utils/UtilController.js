@@ -14,15 +14,20 @@ module.exports.topArticles = async (req, res) => {
           title: article.title,
           description: article.description,
           claps: article.claps,
-          author: {
+          feature_img: article.feature_img,  
+          author:{
             name: article.author.name,
             avatar: article.author.avatar,
-            _id: article.author._id
-          }
+            id: article.author._id  
+          },
+          createdAt: article.createdAt
+          
+          // author_name: article.author.name,
+          // author_avatar: article.author.avatar,
+          // author_id: article.author._id         
         };
       })
     );
-
     return res.status(200).json({
       status: 1,
       data: {

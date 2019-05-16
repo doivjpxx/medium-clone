@@ -20,14 +20,14 @@ export default class PostItemFeature extends Component {
                 <div className="metafooter">
                   <div className="wrapfooter">
                     <span className="meta-footer-thumb">  
-                    {this.props.item.avatar?
-                      <img className="author-thumb" src={`${this.props.item.avatar}`} alt="author"/>
+                    {this.props.item.author.avatar?
+                      <img className="author-thumb" src={`${this.props.item.author.avatar}`} alt="author"/>
                       :
                       <img className="author-thumb" src={"https://cdn.pixabay.com/photo/2013/07/13/12/07/avatar-159236_960_720.png"} alt="author"/>
                     }                                                 
                     </span>
                     <span className="author-meta">
-                      <span className="post-name">{this.props.item.author}</span>
+                      <span className="post-name">{this.props.item.author.name}</span>
                       <br />
                       <span className="post-date">{moment(this.props.item.createdAt).format('llll')}</span>
                       <span className="dot" />

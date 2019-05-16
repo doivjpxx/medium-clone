@@ -54,7 +54,7 @@ export  function detailArticle(id){
             let status=res.data.status
             let article=res.data.data
             dispatch({type:DETAIL_ARTICLE,article,status})
-            console.log(status)
+           // console.log(status)
         })
         .catch((err)=>{
             console.log(err)
@@ -66,9 +66,9 @@ export function topArticle(){
     return function(dispatch){
         Axios.get(Article.ARTICLE_TOP)
         .then((res)=>{
-            let articles = res.data.data
+            let articles = res.data.data.items
             dispatch({type:TOP_ARTICLE,articles})
-            //console.log(articles)
+           // console.log(articles)
         })
         .catch((err)=>{
             console.log(err)

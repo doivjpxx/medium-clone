@@ -16,9 +16,9 @@ export default class Author extends Component {
                   </p>
         <Editor/>
         <AuthorMeta/>
-        {/* <AuthorPost/> */}
+         <AuthorPost/>
         <AlertBar/>
-        <RelatedPost/>
+        {/*<RelatedPost/>*/}
       </div>
     )
   }

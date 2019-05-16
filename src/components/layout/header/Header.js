@@ -66,7 +66,7 @@ export default class Header extends Component {
                 {this.avatar()}                      
                 {this.props.user.avatar?                         
                               <li className="nav-item" onClick={()=> window.location.reload()}>
-                                  <Link className="nav-link" onClick={()=>this.props.logout()}>                                        
+                                  <Link className="nav-link" to="/login" onClick={()=>this.props.logout()}>                                        
                                       Logout 
                                   </Link>
                               </li>    :
