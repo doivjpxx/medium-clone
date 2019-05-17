@@ -2,25 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="526579c8-2106-4cca-a4c8-2b4c35ca8103" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/app_api/controllers/ArticleControllers.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/app_api/controllers/ArticleControllers.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/app_api/controllers/utils/UtilController.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/app_api/controllers/utils/UtilController.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/actions/home.action.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/actions/home.action.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/actions/post.action.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/actions/post.action.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/layout/header/Header.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/layout/header/Header.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/pages/author/Author.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/pages/author/Author.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/pages/home/Home.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/pages/home/Home.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/pages/home/allPost/PostItem.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/pages/home/allPost/PostItem.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/pages/home/postFeature/PostItem.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/pages/home/postFeature/PostItem.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/pages/post/Article.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/pages/post/Article.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/pages/post/ClapIcon.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/pages/post/ClapIcon.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/pages/post/RelatedPost.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/pages/post/RelatedPost.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/constants/action.type.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/constants/action.type.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/constants/api.constants.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/constants/api.constants.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/containers/pages/author/AuthorPost.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/pages/author/AuthorPost.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/reducers/post.reducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/reducers/post.reducer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/app_api/routes/articles.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/app_api/routes/articles.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/dist/" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -108,7 +91,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/pages/author/Author.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="216">
@@ -129,11 +112,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/server/app_api/controllers/ArticleControllers.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="351">
-              <caret line="95" column="25" selection-start-line="95" selection-start-column="25" selection-end-line="95" selection-end-column="25" />
+            <state>
+              <caret line="114" lean-forward="true" selection-start-line="114" selection-end-line="114" />
             </state>
           </provider>
         </entry>
@@ -343,18 +326,17 @@
       <option name="presentableId" value="Default" />
       <updated>1557209905393</updated>
       <workItem from="1557209908921" duration="162000" />
-      <workItem from="1557986872051" duration="9257000" />
+      <workItem from="1557986872051" duration="10201000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="9419000" />
+    <option name="totallyTimeSpent" value="10363000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.14011897" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.14011897" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -369,7 +351,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.32794118" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
-      <window_info anchor="bottom" id="Terminal" order="10" visible="true" weight="0.2632353" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="10" visible="true" weight="0.2632353" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -487,13 +469,6 @@
     <entry file="file://$PROJECT_DIR$/server/app_api/controllers/utils/UtilController.js">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/server/app_api/controllers/ArticleControllers.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="351">
-          <caret line="95" column="25" selection-start-line="95" selection-start-column="25" selection-end-line="95" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/pages/author/AuthorPost.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1863">
@@ -587,6 +562,13 @@
           <folding>
             <element signature="e#0#40#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/app_api/controllers/ArticleControllers.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret line="114" lean-forward="true" selection-start-line="114" selection-end-line="114" />
         </state>
       </provider>
     </entry>

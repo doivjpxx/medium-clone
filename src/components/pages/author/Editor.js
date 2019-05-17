@@ -36,7 +36,7 @@ export default class Editor extends Component {
           <input type="text" name="field1" className="field-style field-split align-left" placeholder="Title" 
             value={title}
             onChange={evt=>{this.setState({title: evt.target.value})}}/>
-          <input type="email" name="field2" className="field-style field-split align-right" placeholder="URL image" 
+          <input type="email" name="field2" className="field-style field-split align-right" placeholder="Background image" 
             value={feature_img}
             onChange={evt=>{this.setState({feature_img: evt.target.value})}}/>
         </li>

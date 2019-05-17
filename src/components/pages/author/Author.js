@@ -3,7 +3,7 @@ import AlertBar from '../../../containers/AlertBar'
 import AuthorMeta from '../../../containers/pages/author/AuthorMeta'
 import AuthorPost from '../../../containers/pages/author/AuthorPost';
 import Editor from '../../../containers/pages/author/Editor'
-import RelatedPost from '../../../containers/pages/post/RelatePost'
+//import RelatedPost from '../../../containers/pages/post/RelatePost'
 
 export default class Author extends Component {
   render() {
@@ -15,8 +15,9 @@ export default class Author extends Component {
                     <img style={{marginTop:50}} src={"https://hireindianprogrammers.com/wp-content/themes/hip/images/hip-home-page-banner.jpg"}/>
                   </p>
         <Editor/>
-        <AuthorMeta/>
-         <AuthorPost/>
+        {/* <AuthorMeta/> */}
+        <h1 className="sitetitle"> My articles</h1>
+        <AuthorPost/>
         <AlertBar/>
         {/*<RelatedPost/>*/}
       </div>

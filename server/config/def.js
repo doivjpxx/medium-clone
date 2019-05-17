@@ -1,3 +1,3 @@
 
 //Number items display on 1 page;
-global.PAGE_SIZE = 10;
+global.PAGE_SIZE = 6;

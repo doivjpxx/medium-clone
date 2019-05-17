@@ -8,7 +8,7 @@ export default class Article extends Component {
         super(props);
         this.state={
             isfollow : false
-            //setInterval( this.props.user.following.indexOf(this.props.article.author_id)>-1?true:false,20000)
+            // this.props.user.following.indexOf(this.props.article.author_id)>-1?true:false
         }   
      //   this.checkFollow=this.checkFollow.bind(this)
         this.follow=this.follow.bind(this)
@@ -17,6 +17,9 @@ export default class Article extends Component {
     componentWillMount(){
         this.props.detailArticle(this.props.id)
     }
+    componentDidMount() {
+        window.scrollTo(0, 0)
+      }
   
     //  checkFollow(){
     //     const following =  this.props.user.following
@@ -35,7 +38,6 @@ export default class Article extends Component {
     render() {
         const {article} = this.props
         const {isfollow} = this.state 
-       // console.log(this.props.user.following.indexOf(this.props.article.author_id))        
         return (
             <div className="col-md-8 col-md-offset-2 col-xs-12">
                 {this.props.loadingDetailArticle?
@@ -52,7 +54,6 @@ export default class Article extends Component {
                             </div>
                             <div className="btn follow"
                                 onClick={isfollow?()=>this.unfollow(article.author.id):()=>this.follow(article.author.id)}
-                                //onClick={()=>this.props.unfollow(article.author_id)}
                                 >
                                 {isfollow?"Unfollow":"Follow"}
                             </div>
@@ -66,7 +67,6 @@ export default class Article extends Component {
                 {/* Begin Post Content */}
                 <div className="article-post">
                 <p dangerouslySetInnerHTML={{ __html:article.text }}/>
-                    {/* {console.log(article.author_id)}   */}
                 </div>
 
                 {/* End Post Content */}

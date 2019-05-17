@@ -1,9 +1,9 @@
 import ClapIcon from '../../../components/pages/post/ClapIcon'
 import {connect} from 'react-redux'
 import {clap} from '../../../actions/post.action'
-import {detailArticle} from '../../../actions/home.action'
+
 const mapDispatchToProps={
-    detailArticle,clap
+    clap
 }
 const mapStateToProps = state =>({
     clapCount: state.clap,

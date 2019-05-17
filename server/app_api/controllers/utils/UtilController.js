@@ -5,7 +5,7 @@ module.exports.topArticles = async (req, res) => {
     const articles = await Article.find()
       .populate("author")
       .sort({ claps: -1 })
-      .limit(10);
+      .limit(6);
 
     let items = await Promise.all(
       articles.map(async article => {
@@ -20,11 +20,7 @@ module.exports.topArticles = async (req, res) => {
             avatar: article.author.avatar,
             id: article.author._id  
           },
-          createdAt: article.createdAt
-          
-          // author_name: article.author.name,
-          // author_avatar: article.author.avatar,
-          // author_id: article.author._id         
+          createdAt: article.createdAt       
         };
       })
     );

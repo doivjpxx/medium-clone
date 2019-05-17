@@ -1,4 +1,4 @@
-import {CLAP_ARTICLE,UNFOLLOW_USER,FOLLOW_USER,CHECK_FOLLOW,DELETE_ARTICLE} from '../constants/action.type'
+import {CLAP_ARTICLE,UNFOLLOW_USER,FOLLOW_USER,DETAIL_ARTICLE} from '../constants/action.type'
 import {Article,User} from '../constants/api.constants'
 import Axios from 'axios';
 export function clap(id){
@@ -65,23 +65,23 @@ export function unfollow(author_id){
 //             dispatch({type:CHECK_FOLLOW,author,follows})
 //             }
 //    }
- export function deleteArticle(id) {
-    return function (dispatch) {
-        let token = localStorage.token;
-        Axios.delete(Article.ARTICLE_DELETE.replace('{id}',id),{
-            headers: {
-                'access_token': `${token}`
-            }
+
+
+
+//detail article
+export  function detailArticle(id){
+    return  function(dispatch){
+        Axios.get(Article.ARTICLE_EDIT.replace('{id}', id))
+        .then((res)=>{
+            let status=res.data.status
+            let article=res.data.data
+            dispatch({type:DETAIL_ARTICLE,article,status})
+           // console.log(status)
         })
-            .then((res)=>{
-                dispatch({type:DELETE_ARTICLE});
-                if(res.data.status===0) alert(res.data.message);
-                if(res.data.status===1) alert(res.data.message);
-            })
-            .catch((err)=>console.log(err))
+        .catch((err)=>{
+            console.log(err)
+        })
     }
- }
-
-
+}
 
      

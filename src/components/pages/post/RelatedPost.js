@@ -16,7 +16,7 @@ export default class RelatedPost extends Component {
                         {this.props.toplist.map((item)=>(
                         <div className="col-md-4" key={item._id}>
                         <Link to={`/post/${item._id}`}>
-                            <div className="card">                        
+                            <div className="card" style={{marginTop:10}}>                        
                                     <img className="img-fluid img-thumb" src={item.feature_img} alt="" />                               
                                 <div className="card-block">
                                     <h2 className="card-title">{item.title}</h2>

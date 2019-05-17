@@ -32,8 +32,9 @@ export default class Home extends Component {
     console.log(this.props.toplist)
     return (
       <div>
-      {this.props.loadingHome==1?<div className="container margtop3rem">
         <SiteTitle />
+      {this.props.loadingHome==1?<div className="container margtop3rem">
+        
         {/* End Site Title================================================== */}
         {/* Begin Featured================================================== */}
         <section className="featured-posts">
@@ -61,8 +62,8 @@ export default class Home extends Component {
               <span>All articles</span>
             </h2>
             <p className="lead">
-              <img style={{marginTop:20,marginBottom:50}} src={"https://anothercoder.blog/wp-content/uploads/2018/04/welcomebanner4.jpg"}/>
-              You’ll never be brave if you do not get hurt. You’ll never learn if you do not make mistakes. You’ll never be successful if you do not encounter failure. 
+              <img style={{margin:'0 auto', display:'flex'}} src={"https://anothercoder.blog/wp-content/uploads/2018/04/welcomebanner4.jpg"}/>
+             
             </p>
           </div>
           <div className="card-columns listrecent">

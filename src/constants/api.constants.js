@@ -14,6 +14,7 @@ export const Article = {
   ARTICLE_EDIT: process.env.API_ENDPOINT + '/api/v1/articles/{id}',
   ARTICLE_CLAP: process.env.API_ENDPOINT + '/api/v1/articles/clap/{id}',
   ARTICLE_TOP: process.env.API_ENDPOINT + '/api/v1/utils/top/articles',
-  ARTICLE_DELETE: process.env.API_ENDPOINT + '/api/v1/articles/{id}'
+  ARTICLE_DELETE: process.env.API_ENDPOINT + '/api/v1/articles/{id}',
+  ARTICLE_ME: process.env.API_ENDPOINT + '/api/v1/articles/author',
 }
 

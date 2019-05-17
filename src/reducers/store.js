@@ -3,6 +3,7 @@ import thunk from 'redux-thunk'
 import { homeReducer,topArticle, loadingHome,loadingDetailArticle } from './home.reducer';
 import { LoginReducer, checkLogin, detailUser} from './Login.Reducer';
 import { clapReducer,detailArticleReducer} from './post.reducer';
+import { myArticleReducer } from './author.reducer';
 
 const reducer = combineReducers({
    list: homeReducer,
@@ -13,6 +14,7 @@ const reducer = combineReducers({
    user : detailUser,
    toplist: topArticle,
    loadingHome: loadingHome,
-   loadingDetailArticle: loadingDetailArticle
+   loadingDetailArticle: loadingDetailArticle,
+   myArticle: myArticleReducer
 })
 export const store = createStore(reducer,applyMiddleware(thunk));

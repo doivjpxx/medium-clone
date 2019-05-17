@@ -1,7 +1,7 @@
 import {connect} from 'react-redux'
 import Article from '../../../components/pages/post/Article'
 import {follow,unfollow}  from '../../../actions/post.action'
-import {detailArticle}  from '../../../actions/home.action'
+import {detailArticle}  from '../../../actions/post.action'
 const mapDispatchToProps={
     detailArticle, follow, unfollow
 }

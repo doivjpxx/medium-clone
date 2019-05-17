@@ -9,10 +9,12 @@ export const LIST_ARTICLE = 'LIST_ARTICLE';
 export const ADD_ARTICLE = 'ADD_ARTICLE';
 export const DETAIL_ARTICLE = 'DETAIL_ARTICLE';
 export const TOP_ARTICLE = "TOP_ARTICLE";
+export const MY_ARTICLE = "MY_ARTICLE";
 
 export const CLAP_ARTICLE = 'CLAP_ARTICLE';
 export const CHECK_FOLLOW= "CHECK_FOLLOW";
 export const DELETE_ARTICLE = "DELETE_ARTICLE";
+
 
 
 

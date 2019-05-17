@@ -435,6 +435,7 @@ ul.tags li a:hover {
 }
 .authorpostbox .img-thumb {
 	width:100%;
+	height: 350px;
 }
 .sociallinks {
 	margin:1rem 0;
