@@ -95,9 +95,19 @@ module.exports.listArticles = async (req, res) => {
 module.exports.detailArticle = async (req, res) => {
   let id = req.params.id;
   try {
-    const article = await Article.findOne({
+    let article = await Article.findOne({
       _id: id
-    }).populate("author");
+    }).populate("author").populate("comments.author");
+
+    let comments = await Promise.all(article.comments.map(async comment => {
+      return {
+        user: comment.author.name,
+        avatar: comment.author.avatar,
+        text: comment.text
+      }
+    }))
+
+    const count = Object.values(_.countBy(comments)).toString();
 
     return res.status(200).json({
       status: 1,
@@ -111,8 +121,9 @@ module.exports.detailArticle = async (req, res) => {
           avatar:article.author.avatar,
           id: article.author._id,
         },
-        comments: article.comments,
-        createdAt: article.createdAt      
+        comments: comments,
+        numberComments: count,
+        createdAt: article.createdAt     
       }
     });
   } catch (e) {
