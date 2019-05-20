@@ -111,6 +111,7 @@ module.exports.detailArticle = async (req, res) => {
           avatar:article.author.avatar,
           id: article.author._id,
         },
+        comments: article.comments,
         createdAt: article.createdAt      
       }
     });
@@ -148,9 +149,8 @@ module.exports.clap = async (req, res) => {
 module.exports.commentArticle = async (req, res) => {
   let userId = req.id;
   let id = req.params.id;
-
   let text = req.body.text;
-
+  
   try {
     let article = await Article.findOne({
       _id: id
@@ -159,10 +159,11 @@ module.exports.commentArticle = async (req, res) => {
     article.comments.push({ text: text, author: userId });
 
     await article.save();
+    console.log(req.body.text)
 
     return res.status(201).json({
       status: 1,
-      data: article,
+      data: article.comments,
       message: "Đã đăng bình luận"
     });
   } catch (e) {

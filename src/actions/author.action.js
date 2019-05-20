@@ -54,10 +54,10 @@ export function getMyArticle(){
                 'access_token': `${token}`,
             }
         })
-        .then(res=>{
+        .then((res)=>{
             const myArticle = res.data.data.items
             dispatch({type:MY_ARTICLE,myArticle})
-        console.log(res)
+  //      console.log(res)
         })
         .catch((err)=>{
             console.log(err)

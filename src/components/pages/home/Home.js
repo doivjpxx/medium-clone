@@ -16,35 +16,35 @@ export default class Home extends Component {
     this.renderNextPage=this.renderNextPage.bind(this)
   }
   componentWillMount(){
-    this.props.listArticles(this.state.page);
-    this.props.topArticle ();
+    this.props.getAllArticles(this.state.page);
+    this.props.getTopArticle ();
   }
   renderpage(value){ 
       this.setState({page:value})
-      this.props.listArticles(value)
+      this.props.getAllArticles(value)
     }
   renderNextPage(){   
-    this.props.listArticles(this.state.page+1)
+    this.props.getAllArticles(this.state.page+1)
     this.setState({page:this.state.page+1})
   }
   
   render() {
-    console.log(this.props.toplist)
+    //console.log(this.props.toplist)
     return (
       <div>
         <SiteTitle />
-      {this.props.loadingHome==1?<div className="container margtop3rem">
+      {this.props.loadingHome==1?<div className="">
         
         {/* End Site Title================================================== */}
         {/* Begin Featured================================================== */}
-        <section className="featured-posts">
+        <section className="featured-posts container">
           <div className="section-title">
             <h2>
               <span>Top articles</span>{/**feature */}
             </h2>
           </div>
           <div className="card-columns listfeaturedtag">        
-              {this.props.toplist.map(item => ( 
+              {this.props.topArticle.map(item => ( 
                 <div key={item._id}>
                     <Link to={`/post/${item._id}`}>
                         <PostItemFeature item={item}  key={item._id}/>  
@@ -56,19 +56,18 @@ export default class Home extends Component {
         </section>
         {/* End Featured================================================== */}
         {/* Begin List Posts================================================== */}
-        <section className="recent-posts">
+        <section className="recent-posts ">
           <div className="section-title">
-            <h2>
+            <h2 className="container">
               <span>All articles</span>
             </h2>
-            <p className="lead">
-              <img style={{margin:'0 auto', display:'flex'}} src={"https://anothercoder.blog/wp-content/uploads/2018/04/welcomebanner4.jpg"}/>
-             
-            </p>
+            {/* <p className="lead">
+              <img className="banner" src={"http://www.programmerforhire.eu/images/banner2.jpg"}/>         
+            </p> */}
           </div>
-          <div className="card-columns listrecent">
+          <div className="card-columns listrecent container">
             {/* begin post  post all post */}       
-             {this.props.list.map(item => (
+             {this.props.allArticle.map(item => (
                <div key={item.id}>
                   <Link to={`/post/${item.id}`}>
                     <PostItemAllPost item={item}  key={item.id}/> 
@@ -77,8 +76,8 @@ export default class Home extends Component {
             ))} 
             {/* end post */}
           </div>
-          <nav aria-label="Page navigation example">
-              <ul className="pagination justify-content-end">
+          <nav aria-label="Page navigation example ">
+              <ul className="pagination justify-content-end container">
                 <li className={this.state.page===0?"page-item disabled":"page-item"}>
                   <div className="page-link" onClick={()=>this.renderpage(this.state.page-1)}>Previous</div>
                 </li>

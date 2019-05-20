@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 //import {Redirect} from 'react-router-dom'
 import loading from '../../../assets/img/Spinner.svg'
 import moment from "moment";
+import Comment from '../../../containers/pages/post/Comment'
 
 export default class Article extends Component {
     constructor(props){
@@ -38,6 +39,7 @@ export default class Article extends Component {
     render() {
         const {article} = this.props
         const {isfollow} = this.state 
+     //   console.log(this.props.article.comments)
         return (
             <div className="col-md-8 col-md-offset-2 col-xs-12">
                 {this.props.loadingDetailArticle?
@@ -79,11 +81,12 @@ export default class Article extends Component {
                         <li><a href="##">MongoDB</a></li>
                     </ul>
                 </div>
+
                 {/* End Tags */}
             </div>
             :
             <div className="container"><img style={{display:'flex',margin:'0 auto',alignItems:'center',justifyContent:'center'}} src={loading}/></div>}
-                
+                 <Comment id={this.props.id} commentFeature={this.props.article.comments}/>
             </div>        
             
         )

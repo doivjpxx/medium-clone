@@ -10,7 +10,7 @@ export default class AuthorPost extends Component {
   render() {
     console.log(this.props.myArticle)
     return (
-      <div className="graybg authorpage">
+      <div className="graybg authorpage container">
         <div className="container">
           <div className="listrecent listrelated">           
             {/* begin post */}
@@ -25,8 +25,7 @@ export default class AuthorPost extends Component {
                     backgroundSize: 'cover',
                     position: 'relative' 
                     }}>
-                    <div  onClick={()=>this.props.deleteArticle(item._id)}><img src={delImg} style={{width:32,height:32, float:"right"}}/></div>     
-                    {/* <img className="img-fluid img-thumb" src={`${item.feature_img}`} alt="image" style={{zIndex:-1}}/> */}
+                    <div  onClick={()=>this.props.deleteArticle(item._id)}><img src={delImg} style={{width:32,height:32, float:"right"}}/></div>    
                   </div>
                   <Link to={`/post/${item._id}`}>
                      <div className="card-block">
@@ -76,10 +75,8 @@ export default class AuthorPost extends Component {
                  </div>
                  </Link>
                </div>
-             </div>
-                   
-            )}
-           
+             </div>                 
+            )}       
           </div>
         </div>
       </div>

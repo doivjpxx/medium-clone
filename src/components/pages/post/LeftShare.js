@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import ClapIcon from '../../../containers/pages/post/Clap';
 
 export default class LeftShare extends Component {
+  
     render() {
         return (
             <div className="col-md-2 col-xs-12">

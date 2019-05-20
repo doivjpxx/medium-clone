@@ -4,19 +4,19 @@ import mojs from "mo-js";
 
 export default class ClapIcon extends Component {
     constructor(props) {
-      super(props)
+      super(props);
       this.state = { 
         count: 0,
         clapsTotal: 0,
         isClicked: false,
        // refresh:true
-      }
+      };
       this._handleClick = this._handleClick.bind(this);
     }
 
     componentDidMount() {
-     this.setState({clapsTotal:this.props.article.claps})
-      const tlDuration = 300   
+     this.setState({clapsTotal:this.props.article.claps});
+      const tlDuration = 300;
       const triangleBurst = new mojs.Burst({
         parent: '#clap',
         radius: {50:95},
@@ -34,7 +34,7 @@ export default class ClapIcon extends Component {
           easing: mojs.easing.bezier(0.1, 1, 0.3 ,1),
           duration: tlDuration
         } 
-      })
+      });
       const circleBurst = new mojs.Burst({
         parent: '#clap',
         radius: {50:75},
@@ -48,7 +48,7 @@ export default class ClapIcon extends Component {
           radius: {3: 0},
           easing: mojs.easing.bezier(0.1, 1, 0.3, 1),
         }
-      })
+      });
       const countAnimation = new mojs.Html({
         el: '#clap--count',
         isShowStart: false,
@@ -60,19 +60,19 @@ export default class ClapIcon extends Component {
         opacity: {1:0},
         y: -80,
         delay: tlDuration/2
-      })
+      });
       const countTotalAnimation = new mojs.Html({
         el: '#clap--count-total'
-      })
+      });
       const scaleButton = new mojs.Html({
         el: '#clap',
         duration: tlDuration,
         scale: {1.3: 1},
         easing: mojs.easing.out
-      })
-      const clap = document.getElementById('clap')
-      clap.style.transform = "scale(1, 1)"
-      this._animationTimeline = new mojs.Timeline()
+      });
+      const clap = document.getElementById('clap');
+      clap.style.transform = "scale(1, 1)";
+      this._animationTimeline = new mojs.Timeline();
       this._animationTimeline.add([
         countAnimation,
         countTotalAnimation,
@@ -86,8 +86,8 @@ export default class ClapIcon extends Component {
     } 
       
      _handleClick () {    
-      this._animationTimeline.replay()
-      this.props.clap(this.props.id)
+      this._animationTimeline.replay();
+      this.props.clap(this.props.id);
       this.setState({count:this.state.count+1})
      // this.refresh()      
      }  
@@ -95,7 +95,7 @@ export default class ClapIcon extends Component {
     render() {
      
     //  console.log(this.props.clapCount)
-     console.log(this.props.article.claps)
+     console.log(this.props.article.claps);
       const {count, isClicked} = this.state;
       const claps=this.props.article.claps;
     //  const {clapsTotal}=this.state

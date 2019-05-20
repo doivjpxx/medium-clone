@@ -13,11 +13,11 @@ export default class Post extends Component {
           <LefShare id={id}/>
           {/* Begin Post */}
           <Article id={id}/>
-        </div>
-        <div className="hideshare">
-        </div>    
-          <RelatedPost />
-        <AlertBar />
+        </div> 
+        <div className="hideshare" id="hideshare"/>   
+          <RelatedPost/>
+         
+          <AlertBar />
       </div>
     )
   }

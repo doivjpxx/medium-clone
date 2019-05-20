@@ -1,6 +1,7 @@
-import './assets/css/bootstrap.min.css'
-import './assets/css/mediumish.css'
-import './assets/font-awesome/css/font-awesome.css'
+import './assets/css/bootstrap.min.css';
+import './assets/css/mediumish.css';
+import './assets/font-awesome/css/font-awesome.css';
+import './assets/js/mediumish';
 import React from "react";
 import ReactDOM from "react-dom";
 import App from './containers/app/App'

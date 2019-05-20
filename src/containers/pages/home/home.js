@@ -3,8 +3,8 @@ import {connect} from 'react-redux'
 import * as action from '../../../actions/home.action'
 
 const mapStateToProps = state => ({
-    list: state.list,
-    toplist: state.toplist,
+    allArticle: state.allArticle,
+    topArticle: state.topArticle,
     loadingHome:state.loadingHome
   });
 

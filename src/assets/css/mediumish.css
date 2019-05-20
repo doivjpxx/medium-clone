@@ -111,6 +111,8 @@ section {
 .listrecent .wrapfooter {
 	font-size:12px;
 	margin-top:30px;
+	bottom: 20px;
+    position: absolute;
 }
 .author-thumb {
 	width:40px;
@@ -254,7 +256,7 @@ blockquote {
 	font-size:0.95rem;
 }
 #share {
-	display:none;
+	display:block;
 	transition-duration: 3s;
 }
 .share ul li {
@@ -315,16 +317,16 @@ blockquote {
 	fill:rgba(0,0,0,.44);
 }
 .graybg {
-	background-color:#fafafa;
 	padding:40px 0 46px;
 	position:relative;
 }
 .listrelated .card {
-	box-shadow:0 1px 7px rgba(0,0,0,.05);
+	box-shadow:0 1px 7px rgba(0, 0, 0, 0.3);
 	border:0;
 }
 .card {
 	border-radius:4px;
+	
 }
 .card .img-thumb {
 	border-top-right-radius:4px;
@@ -476,3 +478,10 @@ ul.tags li a:hover {
 	position: fixed;
 	top: 0;
 	width: 100%; }
+
+.banner{
+	width:90%;
+	margin:'0 auto'; 
+	display:flex;
+	margin: 0 auto
+}

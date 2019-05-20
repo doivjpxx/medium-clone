@@ -4,16 +4,16 @@ import moment from "moment";
 
 export default class RelatedPost extends Component {
     componentWillMount(){
-        this.props.topArticle ();
+        this.props.getTopArticle ();
     }
     render() {
     //    console.log(this.props.toplist)
         return (
-            <div className="graybg">
+            <div className="graybg" id="graybg">
                 <div className="container">
                     <div className="row listrecent listrelated">
                         {/* begin post */}  
-                        {this.props.toplist.map((item)=>(
+                        {this.props.topArticle.map((item)=>(
                         <div className="col-md-4" key={item._id}>
                         <Link to={`/post/${item._id}`}>
                             <div className="card" style={{marginTop:10}}>                        
