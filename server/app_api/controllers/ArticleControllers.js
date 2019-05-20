@@ -111,6 +111,7 @@ module.exports.detailArticle = async (req, res) => {
           avatar:article.author.avatar,
           id: article.author._id,
         },
+        comments: article.comments,
         createdAt: article.createdAt      
       }
     });
