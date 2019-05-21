@@ -8,7 +8,7 @@ export default class AuthorPost extends Component {
     this.props.getMyArticle()
   }
   render() {
-    console.log(this.props.myArticle)
+  //  console.log(this.props.myArticle)
     return (
       <div className="graybg authorpage container">
         <div className="container">
@@ -29,10 +29,8 @@ export default class AuthorPost extends Component {
                   </div>
                   <Link to={`/post/${item._id}`}>
                      <div className="card-block">
-                   <h2 className="card-title">
-                     <a href="post.html">
+                   <h2 className="card-title">       
                        {item.title}
-                     </a>
                    </h2>
                    <h4 className="card-text">
                      {item.description}
@@ -40,13 +38,11 @@ export default class AuthorPost extends Component {
                    <div className="metafooter">
                      <div className="wrapfooter">
                        <span className="meta-footer-thumb">
-                         <a href="author.html">
                            <img
                              className="author-thumb"
                              src={item.author.avatar}
                              alt="authorImage"
                            />
-                         </a>
                        </span>
                        <span className="author-meta">
                          <span className="post-name">
@@ -55,8 +51,7 @@ export default class AuthorPost extends Component {
                          <br />
                          <span className="post-date">{moment(item.createdAt).format('llll')}</span>
                        </span>
-                       <span className="post-read-more">
-                         <a href="post.html" title="Read Story">
+                       <span className="post-read-more">                      
                            <svg
                              className="svgIcon-use"
                              width={25}
@@ -68,7 +63,6 @@ export default class AuthorPost extends Component {
                                fillRule="evenodd"
                              />
                            </svg>
-                         </a>
                        </span>
                      </div>
                    </div>

@@ -1,4 +1,3 @@
-
 import {LIST_ARTICLE,ADD_ARTICLE, TOP_ARTICLE,DETAIL_ARTICLE} from '../constants/action.type'
 
 export function homeReducer(state=[],action){
@@ -22,7 +21,6 @@ export function add_article(state=[], action){
 
 export function topArticle(state=[],action){
     if (action.type===TOP_ARTICLE) return action.articles
- //   console.log(state)
     return state
 }
 

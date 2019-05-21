@@ -1,12 +1,10 @@
 import Comment from '../../../components/pages/post/Comment'
 import {connect} from 'react-redux'
-import {postCommentArticle,detailArticle} from '../../../actions/post.action'
-import {detailUser} from '../../../actions/Login.action'
+import {postCommentArticle} from '../../../actions/post.action'
 const mapDispatchToProps = {
-    postCommentArticle,detailArticle,detailUser
+    postCommentArticle
 }
 const mapStateToProps = state => ({
-    comments: state.comments,
     article:state.article,
     user:state.user
 })

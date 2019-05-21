@@ -4,6 +4,7 @@ import Article from '../../../containers/pages/post/Article'
 import RelatedPost from '../../../containers/pages/post/RelatePost'
 import AlertBar from '../../AlertBar';
 export default class Post extends Component {
+
   render() {
     let id=this.props.match.params.id //get id in url and sent it to Article
     return (
@@ -15,8 +16,7 @@ export default class Post extends Component {
           <Article id={id}/>
         </div> 
         <div className="hideshare" id="hideshare"/>   
-          <RelatedPost/>
-         
+          <RelatedPost/>        
           <AlertBar />
       </div>
     )

@@ -92,7 +92,7 @@ export default class Home extends Component {
         </section>
         {/* End List Posts ================================================== */}
         {/* <AlertBar/>          */}
-      </div>:<div className="container"><img style={{display:'flex',margin:'0 auto',alignItems:'center',justifyContent:'center'}} src={loading}/></div>}
+      </div>:<div className="container"><img style={{display:'flex',margin:'0 auto',alignItems:'center',justifyContent:'center'}} src={"https://ituef.github.io/mos/images/g2a_spinner.gif"}/></div>}
       
       </div>
     );

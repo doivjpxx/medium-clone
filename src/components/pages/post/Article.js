@@ -1,6 +1,4 @@
 import React, { Component } from 'react'
-//import {Redirect} from 'react-router-dom'
-import loading from '../../../assets/img/Spinner.svg'
 import moment from "moment";
 import Comment from '../../../containers/pages/post/Comment'
 
@@ -11,23 +9,24 @@ export default class Article extends Component {
             isfollow : false
             // this.props.user.following.indexOf(this.props.article.author_id)>-1?true:false
         }   
-     //   this.checkFollow=this.checkFollow.bind(this)
+        this.checkFollow=this.checkFollow.bind(this)
         this.follow=this.follow.bind(this)
         this.unfollow=this.unfollow.bind(this)
     }
     componentWillMount(){
         this.props.detailArticle(this.props.id)
+       // this.setState({isfollow:this.checkFollow()})
     }
     componentDidMount() {
         window.scrollTo(0, 0)
       }
   
-    //  checkFollow(){
-    //     const following =  this.props.user.following
-    //     const id=  this.props.article.author_id
-    //         if(following.indexOf(id)>=0) this.setState({isfollow:true})
-    //         else return this.setState({isfollow:false}) 
-    // }
+    checkFollow(){
+        const following =  this.props.user.following
+        const id=  this.props.article.author_id
+            // if(following.indexOf(id)>=0) this.setState({isfollow:true})
+            // else return this.setState({isfollow:false})
+    }
     follow(){
         this.props.follow(this.props.article.author_id)
         this.setState({isfollow:true})
@@ -39,7 +38,7 @@ export default class Article extends Component {
     render() {
         const {article} = this.props
         const {isfollow} = this.state 
-     //   console.log(this.props.article.comments)
+        console.log(this.props.user.following)
         return (
             <div className="col-md-8 col-md-offset-2 col-xs-12">
                 {this.props.loadingDetailArticle?
@@ -85,7 +84,7 @@ export default class Article extends Component {
                 {/* End Tags */}
             </div>
             :
-            <div className="container"><img style={{display:'flex',margin:'0 auto',alignItems:'center',justifyContent:'center'}} src={loading}/></div>}
+            <div className="container"><img style={{display:'flex',margin:'0 auto',alignItems:'center',justifyContent:'center'}} src={"http://images.shejidaren.com/wp-content/uploads/2018/03/134715wPw.jpg"}/></div>}
                  <Comment id={this.props.id} commentFeature={this.props.article.comments}/>
             </div>        
             

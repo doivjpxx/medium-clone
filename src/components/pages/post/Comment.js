@@ -1,7 +1,6 @@
 
 import React, { Component } from 'react'
 import './comment.css'
-import iconDelete from '../../../assets/img/cancel.png'
 
 export default class Comment extends Component {
     constructor(props) {
@@ -10,16 +9,11 @@ export default class Comment extends Component {
           showComments: false,
           text:"",
           post:0,
-        commentCount:0,refresh:true
         };
         this._handleClick=this._handleClick.bind(this)
         this._getComments=this._getComments.bind(this)
         this._getCommentsTitle=this._getCommentsTitle.bind(this)
       }
-
-    //  componentWillMount(){
-    //    this.props.detailArrticle(this.props.id)
-    //  }
 
       _handleClick(){
         this.setState({
@@ -29,33 +23,25 @@ export default class Comment extends Component {
       
       _handleSubmit(event) { 
         event.preventDefault();
-        this.props.postCommentArticle(this.props.id,this.state.text)
-        this.setState({refresh:!this.state.refresh, commentCount: this.props.article.comments.length+1})
+        const {text}=this.state;
+        const {avatar,name}= this.props.user
+        this.props.postCommentArticle(this.props.id,text,avatar,name);
+        this.setState({text:""})
       }
     
 
       _getComments(){         
-        return this.props.comments.length===0?this.props.article.comments.map((comment) => { 
+        return this.props.article.comments.map((comment) => { 
           return (
-            <div className="comment" key={comment._id}>
-            {/* <p className="comment-header">{this.props.author}</p> */}
-            {console.log(comment.text)}
-            <p className="comment-body">- {comment.text}</p>
-          </div>
+            <div className="comment" key={comment.id}>
+              <p className="comment-header"><img className="author-thumb" src={`${comment.avatar}`}/> 
+                  <span style={{fontSize:12}}> {comment.user} </span> 
+              </p>
+              <p className="comment-body">- {comment.text}</p>
+            </div>
           ); 
-        })
-        :
-        this.props.comments.map((comment) => { 
-          return (
-            <div className="comment" key={comment._id}>
-            {/* <p className="comment-header">{this.props.author.name}</p> <img src={`${this.props.author.avater}`}/> */}
-            <p className="comment-header"><img className="author-thumb" src={`${this.props.user.avatar}`}/> <span style={{fontSize:12}}> {this.props.user.name} </span> </p>
-            <p className="comment-body">- {comment.text} <span style={{float:"right",width:20,height:20}}><img src={iconDelete}/></span></p>
-          </div>
-          )
-        })
+        })     
       }
-
       _getCommentsTitle(){
         if (commentCount === 0) {
           return 'No comments yet';
@@ -65,9 +51,10 @@ export default class Comment extends Component {
           return `${commentCount} comments`;
         }
       }
-    // end CommentBox component
-      
+        
       render () {
+     console.log(this.props.article)
+     console.log(this.props.user.avatar)
         return(
           <div className="comment-box">
             <form className="comment-form" >
@@ -83,10 +70,9 @@ export default class Comment extends Component {
             </button>
            
             <h4 className="comment-count">
-            Comments {this.state.commentCount<2?this.props.article.comments?this.props.article.comments.length:this.props.comments.length:this.props.comments.length}
+            Comments {this.props.commentFeature?this.props.commentFeature.length:0}
             </h4>
             {this.state.showComments?this._getComments():null}
-            {console.log(this.props.article)}
           </div>  
         );
       }

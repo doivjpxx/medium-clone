@@ -1,20 +1,18 @@
 import { createStore , combineReducers , applyMiddleware  } from 'redux'
 import thunk from 'redux-thunk'
 import { homeReducer,topArticle, loadingHome,loadingDetailArticle } from './home.reducer';
-import { checkLogin, detailUser} from './Login.Reducer';
-import { clapReducer,detailArticleReducer,commentArticle} from './post.reducer';
-import { myArticleReducer } from './author.reducer';
+import { detailUser} from './Login.Reducer';
+import { detailArticle} from './post.reducer';
+import { myArticle } from './author.reducer';
 
 const reducer = combineReducers({
    allArticle: homeReducer,
-   clap: clapReducer,
-   article: detailArticleReducer,
-   checkLogin: checkLogin,
+   claps: detailArticle,
+   article: detailArticle,
    user : detailUser,
    topArticle: topArticle,
    loadingHome: loadingHome,
    loadingDetailArticle: loadingDetailArticle,
-   myArticle: myArticleReducer,
-   comments: commentArticle,
+   myArticle: myArticle,
 });
 export const store = createStore(reducer,applyMiddleware(thunk));

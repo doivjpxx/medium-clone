@@ -7,7 +7,6 @@ export default class RelatedPost extends Component {
         this.props.getTopArticle ();
     }
     render() {
-    //    console.log(this.props.toplist)
         return (
             <div className="graybg" id="graybg">
                 <div className="container">

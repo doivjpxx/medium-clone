@@ -6,7 +6,7 @@ const mapDispatchToProps={
     clap
 };
 const mapStateToProps = state =>({
-    clapCount: state.clap,
+    clapCount: state.claps,
     article : state.article
 });
 export default connect(mapStateToProps,mapDispatchToProps)(ClapIcon)

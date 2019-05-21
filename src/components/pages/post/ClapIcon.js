@@ -6,10 +6,7 @@ export default class ClapIcon extends Component {
     constructor(props) {
       super(props);
       this.state = { 
-        count: 0,
-        clapsTotal: 0,
         isClicked: false,
-       // refresh:true
       };
       this._handleClick = this._handleClick.bind(this);
     }
@@ -88,23 +85,16 @@ export default class ClapIcon extends Component {
      _handleClick () {    
       this._animationTimeline.replay();
       this.props.clap(this.props.id);
-      this.setState({count:this.state.count+1})
-     // this.refresh()      
      }  
     
     render() {
-     
-    //  console.log(this.props.clapCount)
-     console.log(this.props.article.claps);
-      const {count, isClicked} = this.state;
-      const claps=this.props.article.claps;
-    //  const {clapsTotal}=this.state
-      const {clapCount} = this.props;
-      return getAppContent(count, claps, isClicked, this._handleClick,clapCount)
+      const {isClicked} = this.state; 
+      const {claps}=this.props.article; 
+      return getAppContent( claps, isClicked, this._handleClick)
     }
   }
   
-  function getAppContent(count, claps, isClicked, handleClick,clapCount) {
+  function getAppContent( claps, isClicked, handleClick) {
     return <div><button id="clap" className="clap" onClick={handleClick}>
     <span>
       {/*<!--  SVG Created by Luis Durazo from the Noun Project  -->*/}
@@ -116,7 +106,7 @@ export default class ClapIcon extends Component {
     <span
       id="clap--count" className="clap--count">+{1}</span>   
     <span
-      id="clap--count-total" className="clap--count-total">{count<1?claps:clapCount}</span>
+      id="clap--count-total" className="clap--count-total">{claps}</span>
   </button>
     </div>
   }

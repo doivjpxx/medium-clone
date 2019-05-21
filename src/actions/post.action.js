@@ -32,7 +32,7 @@ export function follow(author_id){
         })
         .then((res) => {
             console.log(res);
-            dispatch({type:FOLLOW_USER});
+            dispatch({type:FOLLOW_USER,id:id});
             if(res.data.status === 1){
                 alert("follow success!")
             }          
@@ -78,7 +78,7 @@ export  function detailArticle(id){
     }
 }
 
-export function postCommentArticle(idArticle,text){
+export function postCommentArticle(idArticle,text,avatar,name){
     return function(dispatch){
         let token = localStorage.token;
      //   console.log(text)
@@ -88,9 +88,13 @@ export function postCommentArticle(idArticle,text){
                 'access_token': `${token}`,          
             }
         }).then((res)=>{
-            const comments = res.data.data;
-            dispatch({type:COMMENT_ARTICLE,comments})
-         //   console.log(token)
+            const comment = {             
+                user:name,
+                avatar:avatar,
+                text:text,
+            };
+            dispatch({type:COMMENT_ARTICLE,comment:comment})
+            console.log(comment)
         }).catch((err)=>{console.log(err)})
     }
 }
